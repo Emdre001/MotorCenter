@@ -1,0 +1,6 @@
+@Motorcenter.API.VehicleType_HostAddress = http://localhost:5145
+
+GET {{Motorcenter.API.VehicleType_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
