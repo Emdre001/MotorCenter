@@ -1,3 +1,7 @@
+using AutoMapper;
+using Motorcenter.Data.Entities;
+using Motorcenter.Data.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +16,23 @@ builder.Services.AddDbContext<MotorcenterContext>(
             builder.Configuration.GetConnectionString("MotorcenterConnection")));
 
 
+builder.Services.AddCors(policy =>
+{
+    policy.AddPolicy("CorsAllAccessPolicy", opt =>
+        opt.AllowAnyOrigin()
+           .AllowAnyHeader()
+           .AllowAnyMethod()
+    );
+});
+
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+RegisterServices();
+ConfigureAutoMapper();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,29 +44,43 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+RegisterEndpoints();
 
 app.Run();
+app.UseCors();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+
+void RegisterServices()
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    //builder.Services.
+    ConfigureAutoMapper();
+    builder.Services.AddScoped<IDbService, VehicleDbService>();
 }
+
+
+
+void RegisterEndpoints()
+{
+    app.AddEndpoint<Brand, TypePostDTO, TypePutDTO, TypeGetDTO>();
+}
+
+
+void ConfigureAutoMapper()
+{
+    var config = new MapperConfiguration(cfg =>
+    {
+        cfg.CreateMap<Brand, TypePostDTO>().ReverseMap();
+        cfg.CreateMap<Brand, TypePutDTO>().ReverseMap();
+        cfg.CreateMap<Brand, TypeGetDTO>().ReverseMap();
+        cfg.CreateMap<Brand, CategorySmallGetDTO>().ReverseMap();
+        /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
+         cfg.CreateMap<Size, OptionDTO>().ReverseMap();
+         cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
+    });
+    var mapper = config.CreateMapper();
+    builder.Services.AddSingleton(mapper);
+}
+
+
+
+

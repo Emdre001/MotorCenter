@@ -1,0 +1,34 @@
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Motorcenter.Data.Contexts;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Motorcenter.Data.Services;
+
+public class DbService : IDbService
+{
+
+    //_ istället för this. som vissar att de är en class variabel. 
+    private readonly MotorcenterContext _db;
+    private readonly IMapper _mapper;
+
+    public DbService(MotorcenterContext db, IMapper mapper)
+    {
+        _db = db;
+        _mapper = mapper;
+    }
+    public virtual async Task<List<TDto>> GetAsync<TEntity, TDto>()
+        where TEntity : class
+        where TDto : class
+    {
+        //IncludeNavigationsFor<Filter>();
+        var entities = await _db.Set<TEntity>().ToListAsync();
+        return _mapper.Map<List<TDto>>(entities);
+
+
+    }
+}

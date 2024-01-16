@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
       <PrivateAssets>all</PrivateAssets>
@@ -16,7 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Motorcenter.Data.Shared\Motorcenter.Data.Shared.csproj" />
+    <ProjectReference Include="..\Motorcenter.API.DTO\Motorcenter.API.DTO.csproj" />
+    <ProjectReference Include="..\MotorCenter.API.Extensions\Motorcenter.API.Extensions.csproj" />
     <ProjectReference Include="..\Motorcenter.Data\Motorcenter.Data.csproj" />
   </ItemGroup>
 
