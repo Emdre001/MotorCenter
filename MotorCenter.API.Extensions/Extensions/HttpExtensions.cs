@@ -1,6 +1,6 @@
 ﻿namespace Motorcenter.API.Extensions.Extensions;
 
-public class HttpExtensions
+public static class HttpExtensions
 {
 
     public static void AddEndpoint<TEntity, TPostDto, TPutDto, TGetDto>(this WebApplication app) //we dont need Delete, since it only need the Id
@@ -14,7 +14,7 @@ public class HttpExtensions
         //app.MapDelete($"/api/{node}s/" + "{id}", HttpDeleteAsync<TEntity>);
     }
 
-    public static async Task<IResult> HttpGetAsync<TEntity, TDto>(this IDbService db)
+    public static async Task<IResult> HttpGetAsync<TEntity, TDto>()
     where TEntity : class where TDto : class =>
-       Results.Ok(await db.GetAsync<TEntity, TDto>());
+       Results.Ok();
 }
