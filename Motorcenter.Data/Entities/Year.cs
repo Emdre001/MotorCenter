@@ -4,5 +4,5 @@ public class Year : IEntity
 {
     public int Id { get; set; }
     public string Range { get; set; }
-    public Vehicle Vehicles { get; set; }
+    public List<Vehicle>? Vehicles { get; set; }
 }

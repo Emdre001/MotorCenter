@@ -62,5 +62,26 @@ public class MotorcenterContext(DbContextOptions<MotorcenterContext> Builder) : 
             .UsingEntity<VehicleColor>();
         #endregion
 
+        #region VehicleBrand One-to-Many Relationship
+        builder.Entity<Vehicle>()
+            .HasOne(p => p.Brand)
+            .WithMany(c => c.Vehicles)
+            .HasForeignKey(b => b.BrandId);
+        #endregion
+
+        #region VehicleMileage One-to-Many Relationship
+        builder.Entity<Vehicle>()
+            .HasOne(p => p.Mileage)
+            .WithMany(c => c.Vehicles)
+            .HasForeignKey(b => b.MileageId);
+        #endregion
+
+        #region VehicleYear One-to-Many Relationship
+        builder.Entity<Vehicle>()
+            .HasOne(p => p.Year)
+            .WithMany(c => c.Vehicles)
+            .HasForeignKey(b => b.YearId);
+        #endregion
+
     }
 }
