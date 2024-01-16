@@ -15,7 +15,7 @@ public class MotorcenterContext(DbContextOptions<MotorcenterContext> Builder) : 
     public DbSet<VehicleFuel> VehicleFuels => Set<VehicleFuel>();
     public DbSet<VehicleType> VehicleTypes => Set<VehicleType>();
     public DbSet<VehicleTypeFilter> VehicleTypeFilers => Set<VehicleTypeFilter>();
-    public DbSet<VehicleTypeVehicle> vehicleTypeVehicles => Set<VehicleTypeVehicle>();
+    public DbSet<VehicleTypeVehicle> VehicleTypeVehicles => Set<VehicleTypeVehicle>();
     public DbSet<Year> Years => Set<Year>();
 
     protected override void OnModelCreating(ModelBuilder builder)
