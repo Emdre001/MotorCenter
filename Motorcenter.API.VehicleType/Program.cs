@@ -1,6 +1,4 @@
-using AutoMapper;
-using Motorcenter.Data.Entities;
-using Motorcenter.Data.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

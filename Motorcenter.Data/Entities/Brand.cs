@@ -1,6 +1,4 @@
-﻿using Motorcenter.Data.Shared.Interfaces;
-
-namespace Motorcenter.Data.Entities;
+﻿namespace Motorcenter.Data.Entities;
 
 public class Brand : IEntity 
 {

@@ -5,3 +5,5 @@ global using Motorcenter.Data;
 global using AutoMapper;
 global using Motorcenter.API.Extensions.Extensions;
 global using Microsoft.EntityFrameworkCore.Internal;
+global using Motorcenter.Data.Entities;
+global using Motorcenter.Data.Services;
