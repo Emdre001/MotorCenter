@@ -1,0 +1,6 @@
+@Motorcenter.API.Filter_HostAddress = http://localhost:5262
+
+GET {{Motorcenter.API.Filter_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

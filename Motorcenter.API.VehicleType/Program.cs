@@ -1,5 +1,7 @@
 
 
+using Motorcenter.API.DTO.DTOs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -59,7 +61,7 @@ void RegisterServices()
 
 void RegisterEndpoints()
 {
-    app.AddEndpoint<Brand, TypePostDTO, TypePutDTO, TypeGetDTO>();
+    app.AddEndpoint<Brand, BrandPostDTO, BrandPutDTO, BrandGetDTO>();
 }
 
 
@@ -67,10 +69,10 @@ void ConfigureAutoMapper()
 {
     var config = new MapperConfiguration(cfg =>
     {
-        cfg.CreateMap<Brand, TypePostDTO>().ReverseMap();
-        cfg.CreateMap<Brand, TypePutDTO>().ReverseMap();
-        cfg.CreateMap<Brand, TypeGetDTO>().ReverseMap();
-        cfg.CreateMap<Brand, CategorySmallGetDTO>().ReverseMap();
+        cfg.CreateMap<Brand, BrandPostDTO>().ReverseMap();
+        cfg.CreateMap<Brand, BrandPutDTO>().ReverseMap();
+        cfg.CreateMap<Brand, BrandGetDTO>().ReverseMap();
+        /*cfg.CreateMap<Brand, CategorySmallGetDTO>().ReverseMap();
         /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
          cfg.CreateMap<Size, OptionDTO>().ReverseMap();
          cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
