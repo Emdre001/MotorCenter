@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Motorcenter.API.DTO.DTOs;
-public class VehicleTypeDTO
+namespace Motorcenter.Data.Entities;
+
+public class BrandVehicleType
 {
     public int BrandId { get; set; }
-    public int VehicleId { get; set; }
+    public int VehicleTypeId { get; set; }
+
 }
-
-
-
-

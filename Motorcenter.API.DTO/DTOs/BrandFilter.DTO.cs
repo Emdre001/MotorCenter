@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace Motorcenter.API.DTO.DTOs;
 
-public class VehicleColorPostDTO
+public class BrandFilterDTO
 {
-    public int ColorId { get; set; }
+   public int FilterId { get; set; }
     public int BrandId { get; set; }
-}
-public class VehicleColorPutDTO : VehicleColorPostDTO
-{
 
 }
-public class VehicleColorGetDTO : VehicleColorPostDTO
-{
-}
+
+
 

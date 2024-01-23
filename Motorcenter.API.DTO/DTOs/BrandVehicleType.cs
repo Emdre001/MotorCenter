@@ -5,12 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Motorcenter.API.DTO.DTOs;
-public class VehicleTypeDTO
+
+public class BrandVehicleType
 {
     public int BrandId { get; set; }
-    public int VehicleId { get; set; }
+    public int VehicleTypeId { get; set; }
+
+
 }
-
-
-
-

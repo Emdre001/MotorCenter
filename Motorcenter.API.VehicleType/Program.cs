@@ -1,6 +1,11 @@
 
 
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Motorcenter.API.DTO.DTOs;
+using Motorcenter.Data.Contexts;
+using Motorcenter.Data.Entities;
+using Motorcenter.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,8 +51,8 @@ app.UseHttpsRedirection();
 
 RegisterEndpoints();
 
-app.Run();
 app.UseCors();
+app.Run();
 
 
 void RegisterServices()
@@ -61,7 +66,7 @@ void RegisterServices()
 
 void RegisterEndpoints()
 {
-    app.AddEndpoint<Brand, BrandPostDTO, BrandPutDTO, BrandGetDTO>();
+    //app.AddEndpoint<Brand, BrandPostDTO, BrandPutDTO, BrandGetDTO>();
 }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Motorcenter.API.DTO.DTOs
 {
-    internal class VehicleTypeVehicle
+    internal class Usings
     {
     }
 }
