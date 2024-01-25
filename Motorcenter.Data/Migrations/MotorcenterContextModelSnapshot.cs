@@ -114,68 +114,22 @@ namespace Motorcenter.Data.Migrations
                     b.ToTable("Mileages");
                 });
 
-            modelBuilder.Entity("Motorcenter.Data.Entities.Vehicle", b =>
+            modelBuilder.Entity("Motorcenter.Data.Entities.BrandFilter", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MileageId")
+                    b.Property<int>("FilterId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("BrandId", "FilterId");
 
-                    b.Property<int>("YearId")
-                        .HasColumnType("int");
+                    b.HasIndex("Id");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
-
-                    b.HasIndex("MileageId");
-
-                    b.HasIndex("YearId")
-                        .IsUnique();
-
-                    b.ToTable("Vehicles");
+                    b.ToTable("BrandFilters");
                 });
 
-            modelBuilder.Entity("Motorcenter.Data.Entities.VehicleColor", b =>
-                {
-                    b.Property<int>("VehicleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ColorId")
-                        .HasColumnType("int");
-
-                    b.HasKey("VehicleId", "ColorId");
-
-                    b.HasIndex("ColorId");
-
-                    b.ToTable("VehicleColors");
-                });
-
-            modelBuilder.Entity("Motorcenter.Data.Entities.VehicleFuel", b =>
-                {
-                    b.Property<int>("FuelId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VehicleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("FuelId", "VehicleId");
-
-                    b.HasIndex("VehicleId");
-
-                    b.ToTable("VehicleFuels");
-                });
+           
 
             modelBuilder.Entity("Motorcenter.Data.Entities.VehicleType", b =>
                 {
@@ -185,27 +139,19 @@ namespace Motorcenter.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Bike")
+                    b.Property<string>("Suv")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Boat")
+                    b.Property<string>("Sedan")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Car")
+                    b.Property<string>("Kombi")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Jetski")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Moped")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Snowmobile")
+                    b.Property<string>("Van")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -214,52 +160,23 @@ namespace Motorcenter.Data.Migrations
                     b.ToTable("VehicleTypes");
                 });
 
-            modelBuilder.Entity("Motorcenter.Data.Entities.VehicleTypeFilter", b =>
+            modelBuilder.Entity("Motorcenter.Data.Entities.BrandVehicleType", b =>
                 {
                     b.Property<int>("VehicleTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FilterId")
-                        .HasColumnType("int");
-
-                    b.HasKey("VehicleTypeId", "FilterId");
-
-                    b.HasIndex("FilterId");
-
-                    b.ToTable("VehicleTypeFilers");
-                });
-
-            modelBuilder.Entity("Motorcenter.Data.Entities.VehicleTypeVehicle", b =>
-                {
                     b.Property<int>("VehicleId")
                         .HasColumnType("int");
 
-                    b.Property<int>("VehicleTypeId")
-                        .HasColumnType("int");
+                    b.HasKey("VehicleTypeId", "BrandId");
 
-                    b.HasKey("VehicleId", "VehicleTypeId");
+                    b.HasIndex("BrandId");
 
-                    b.HasIndex("VehicleTypeId");
-
-                    b.ToTable("vehicleTypeVehicles");
+                    b.ToTable("BrandVehicleTypes");
                 });
 
-            modelBuilder.Entity("Motorcenter.Data.Entities.Year", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+           
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Range")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Years");
-                });
 
             modelBuilder.Entity("Motorcenter.Data.Entities.Vehicle", b =>
                 {
@@ -275,79 +192,40 @@ namespace Motorcenter.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Motorcenter.Data.Entities.Year", "Year")
-                        .WithOne("Vehicles")
-                        .HasForeignKey("Motorcenter.Data.Entities.Vehicle", "YearId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Brand");
 
                     b.Navigation("Mileage");
 
-                    b.Navigation("Year");
+                  
                 });
 
-            modelBuilder.Entity("Motorcenter.Data.Entities.VehicleColor", b =>
-                {
-                    b.HasOne("Motorcenter.Data.Entities.Color", null)
-                        .WithMany()
-                        .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
-                    b.HasOne("Motorcenter.Data.Entities.Vehicle", null)
-                        .WithMany()
-                        .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+            modelBuilder.Entity("Motorcenter.Data.Entities.Vehicle", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-            modelBuilder.Entity("Motorcenter.Data.Entities.VehicleFuel", b =>
-                {
-                    b.HasOne("Motorcenter.Data.Entities.Fuel", null)
-                        .WithMany()
-                        .HasForeignKey("FuelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.HasOne("Motorcenter.Data.Entities.Vehicle", null)
-                        .WithMany()
-                        .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                b.Property<int>("BrandId")
+                    .HasColumnType("int");
 
-            modelBuilder.Entity("Motorcenter.Data.Entities.VehicleTypeFilter", b =>
-                {
-                    b.HasOne("Motorcenter.Data.Entities.Filter", null)
-                        .WithMany()
-                        .HasForeignKey("FilterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                b.Property<int>("MileageId")
+                    .HasColumnType("int");
 
-                    b.HasOne("Motorcenter.Data.Entities.VehicleType", null)
-                        .WithMany()
-                        .HasForeignKey("VehicleTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-            modelBuilder.Entity("Motorcenter.Data.Entities.VehicleTypeVehicle", b =>
-                {
-                    b.HasOne("Motorcenter.Data.Entities.Vehicle", null)
-                        .WithMany()
-                        .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                b.HasKey("Id");
 
-                    b.HasOne("Motorcenter.Data.Entities.VehicleType", null)
-                        .WithMany()
-                        .HasForeignKey("VehicleTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                b.HasIndex("BrandId");
 
+                b.HasIndex("MileageId");
+
+                b.ToTable("Vehicles");
+            });
             modelBuilder.Entity("Motorcenter.Data.Entities.Brand", b =>
                 {
                     b.Navigation("Vehicles");
@@ -356,12 +234,6 @@ namespace Motorcenter.Data.Migrations
             modelBuilder.Entity("Motorcenter.Data.Entities.Mileage", b =>
                 {
                     b.Navigation("Vehicles");
-                });
-
-            modelBuilder.Entity("Motorcenter.Data.Entities.Year", b =>
-                {
-                    b.Navigation("Vehicles")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

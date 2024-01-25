@@ -2,114 +2,124 @@
 
 namespace Motorcenter.Data.Migrations
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Migrationsklass för att skapa och ta bort tabeller och relationer i databasen.
+    /// </summary>
     public partial class Initial : Migration
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Metod för att definiera ändringar som ska utföras vid uppdatering av databasen (Up-metoden).
+        /// </summary>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            // Skapa Brands-tabellen
             migrationBuilder.CreateTable(
                 name: "Brands",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),  // Automatiskt generera Id med en ökande sekvens
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)  // Kräv att Name inte kan vara null
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Brands", x => x.Id);
+                    table.PrimaryKey("PK_Brands", x => x.Id);  // Sätt primärnyckel för Brands-tabellen till Id
                 });
 
+            // Skapa Colors-tabellen
             migrationBuilder.CreateTable(
                 name: "Colors",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OptionType = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),  // Automatiskt generera Id med en ökande sekvens
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),  // Kräv att Name inte kan vara null
+                    OptionType = table.Column<int>(type: "int", nullable: false)  // Kräv att OptionType inte kan vara null
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Colors", x => x.Id);
+                    table.PrimaryKey("PK_Colors", x => x.Id);  // Sätt primärnyckel för Colors-tabellen till Id
                 });
 
+            // Skapa Filters-tabellen
             migrationBuilder.CreateTable(
                 name: "Filters",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TypeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OptionType = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),  // Automatiskt generera Id med en ökande sekvens
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),  // Kräv att Name inte kan vara null
+                    TypeName = table.Column<string>(type: "nvarchar(max)", nullable: false),  // Kräv att TypeName inte kan vara null
+                    OptionType = table.Column<int>(type: "int", nullable: false)  // Kräv att OptionType inte kan vara null
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Filters", x => x.Id);
+                    table.PrimaryKey("PK_Filters", x => x.Id);  // Sätt primärnyckel för Filters-tabellen till Id
                 });
 
+            // Skapa Fuels-tabellen
             migrationBuilder.CreateTable(
                 name: "Fuels",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OptionType = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),  // Automatiskt generera Id med en ökande sekvens
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),  // Kräv att Name inte kan vara null
+                    OptionType = table.Column<int>(type: "int", nullable: false)  // Kräv att OptionType inte kan vara null
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Fuels", x => x.Id);
+                    table.PrimaryKey("PK_Fuels", x => x.Id);  // Sätt primärnyckel för Fuels-tabellen till Id
                 });
 
+            // Skapa Mileages-tabellen
             migrationBuilder.CreateTable(
                 name: "Mileages",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Range = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),  // Automatiskt generera Id med en ökande sekvens
+                    Range = table.Column<string>(type: "nvarchar(max)", nullable: false)  // Kräv att Range inte kan vara null
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Mileages", x => x.Id);
+                    table.PrimaryKey("PK_Mileages", x => x.Id);  // Sätt primärnyckel för Mileages-tabellen till Id
                 });
 
+            // Skapa VehicleTypes-tabellen
             migrationBuilder.CreateTable(
                 name: "VehicleTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Car = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Bike = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Snowmobile = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Moped = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Boat = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Jetski = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),  // Automatiskt generera Id med en ökande sekvens
+                    Suv = table.Column<string>(type: "nvarchar(max)", nullable: false),  // Kräv att Suv inte kan vara null
+                    Sedan = table.Column<string>(type: "nvarchar(max)", nullable: false),  // Kräv att Sedan inte kan vara null
+                    Kombi = table.Column<string>(type: "nvarchar(max)", nullable: false),  // Kräv att Kombi inte kan vara null
+                    Van = table.Column<string>(type: "nvarchar(max)", nullable: false)  // Kräv att Van inte kan vara null
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VehicleTypes", x => x.Id);
+                    table.PrimaryKey("PK_VehicleTypes", x => x.Id);  // Sätt primärnyckel för VehicleTypes-tabellen till Id
                 });
 
+            // Skapa Years-tabellen
             migrationBuilder.CreateTable(
-                name: "Years",
+                name: "Vehicles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Range = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),  // Automatiskt generera Id med en ökande sekvens
+                    Range = table.Column<string>(type: "nvarchar(max)", nullable: false)  // Kräv att Range inte kan vara null
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Years", x => x.Id);
+                    table.PrimaryKey("PK_Vehicles", x => x.Id);  // Sätt primärnyckel för Years-tabellen till Id
                 });
 
+            // Skapa VehicleTypeFilters-tabellen
             migrationBuilder.CreateTable(
-                name: "VehicleTypeFilers",
+                name: "BrandFilters",
                 columns: table => new
                 {
                     FilterId = table.Column<int>(type: "int", nullable: false),
@@ -117,35 +127,36 @@ namespace Motorcenter.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VehicleTypeFilers", x => new { x.VehicleTypeId, x.FilterId });
+                    table.PrimaryKey("PK_BrandFilters", x => new { x.VehicleTypeId, x.FilterId });
                     table.ForeignKey(
-                        name: "FK_VehicleTypeFilers_Filters_FilterId",
+                        name: "FK_VehicleTypeFilters_Filters_FilterId",
                         column: x => x.FilterId,
                         principalTable: "Filters",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_VehicleTypeFilers_VehicleTypes_VehicleTypeId",
+                        name: "FK_VehicleTypeFilters_VehicleTypes_VehicleTypeId",
                         column: x => x.VehicleTypeId,
                         principalTable: "VehicleTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            // Skapa Vehicles-tabellen
             migrationBuilder.CreateTable(
                 name: "Vehicles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                        .Annotation("SqlServer:Identity", "1, 1"),  // Automatiskt generera Id med en ökande sekvens
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),  // Kräv att Name inte kan vara null
                     YearId = table.Column<int>(type: "int", nullable: false),
                     BrandId = table.Column<int>(type: "int", nullable: false),
                     MileageId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vehicles", x => x.Id);
+                    table.PrimaryKey("PK_Vehicles", x => x.Id);  // Sätt primärnyckel för Vehicles-tabellen till Id
                     table.ForeignKey(
                         name: "FK_Vehicles_Brands_BrandId",
                         column: x => x.BrandId,
@@ -166,6 +177,7 @@ namespace Motorcenter.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            // Skapa VehicleColors-tabellen
             migrationBuilder.CreateTable(
                 name: "VehicleColors",
                 columns: table => new
@@ -190,6 +202,7 @@ namespace Motorcenter.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            // Skapa VehicleFuels-tabellen
             migrationBuilder.CreateTable(
                 name: "VehicleFuels",
                 columns: table => new
@@ -214,6 +227,7 @@ namespace Motorcenter.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            // Skapa vehicleTypeVehicles-tabellen
             migrationBuilder.CreateTable(
                 name: "vehicleTypeVehicles",
                 columns: table => new
@@ -238,81 +252,56 @@ namespace Motorcenter.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            // Skapa index för VehicleColors-tabellen
             migrationBuilder.CreateIndex(
-                name: "IX_VehicleColors_ColorId",
-                table: "VehicleColors",
-                column: "ColorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_VehicleFuels_VehicleId",
-                table: "VehicleFuels",
-                column: "VehicleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_VehicleTypeFilers_FilterId",
-                table: "VehicleTypeFilers",
+                name: "IX_BrandFilters_FilterId",
+                table: "BrandFilters",
                 column: "FilterId");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Vehicles_BrandId",
-                table: "Vehicles",
-                column: "BrandId");
 
+            // Skapa unikt index för Vehicles-tabellen
             migrationBuilder.CreateIndex(
-                name: "IX_Vehicles_MileageId",
-                table: "Vehicles",
-                column: "MileageId");
+                name: "IX_VehicleTypes_VehicleId",
+                table: "VehicleTypes",
+                column: "VehicleId");
+              
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Vehicles_YearId",
-                table: "Vehicles",
-                column: "YearId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_vehicleTypeVehicles_VehicleTypeId",
-                table: "vehicleTypeVehicles",
-                column: "VehicleTypeId");
+            
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Metod för att definiera ångradetillståndet vid nedgradering av databasen (Down-metoden).
+        /// </summary>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "VehicleColors");
-
-            migrationBuilder.DropTable(
-                name: "VehicleFuels");
-
-            migrationBuilder.DropTable(
-                name: "VehicleTypeFilers");
-
-            migrationBuilder.DropTable(
-                name: "vehicleTypeVehicles");
-
-            migrationBuilder.DropTable(
-                name: "Colors");
-
-            migrationBuilder.DropTable(
-                name: "Fuels");
-
-            migrationBuilder.DropTable(
-                name: "Filters");
-
-            migrationBuilder.DropTable(
-                name: "VehicleTypes");
-
-            migrationBuilder.DropTable(
-                name: "Vehicles");
+            // Ångra skapandet av tabellerna och deras relationer
 
             migrationBuilder.DropTable(
                 name: "Brands");
 
             migrationBuilder.DropTable(
+                name: "BrandFilters");
+
+            migrationBuilder.DropTable(
+                name: "BrandVehicleTypes");
+
+            migrationBuilder.DropTable(
+                name: "Colors");
+
+            migrationBuilder.DropTable(
+                name: "Filters");
+
+            migrationBuilder.DropTable(
+                name: "Fuels");
+
+            migrationBuilder.DropTable(
                 name: "Mileages");
 
             migrationBuilder.DropTable(
-                name: "Years");
+                name: "Vehicles");
+
+            migrationBuilder.DropTable(
+                name: "VehicleTypes");
         }
     }
 }
