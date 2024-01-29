@@ -59,7 +59,7 @@ void RegisterServices()
 
 void RegisterEndpoints()
 {
-    //app.AddEndpoint<Brand, BrandPostDTO, BrandPutDTO, BrandGetDTO>();
+    //app.AddEndpoint<Vehicle, VehiclePostDTO, VehiclePutDTO, VehicleGetDTO>();
 }
 
 
