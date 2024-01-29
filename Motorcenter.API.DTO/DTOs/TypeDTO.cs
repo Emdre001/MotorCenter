@@ -1,5 +1,5 @@
 ﻿namespace Motorcenter.API.DTO;
-// DTO-klass för att överföra data om kopplingen mellan VehicleType, Brand och Vehicle
+
 public class TypePostDTO
 {
     public string name { get; set; } = string.Empty;
