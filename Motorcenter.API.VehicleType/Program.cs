@@ -1,3 +1,5 @@
+using Motorcenter.API.Extensions.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -40,7 +42,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-RegisterEndpoints();
 
 app.UseCors();
 app.Run();
@@ -55,9 +56,21 @@ void RegisterServices()
 
 
 
-void RegisterEndpoints()
+void RegisterEndpoints(WebApplication app)
 {
-    //app.AddEndpoint<Brand, BrandPostDTO, BrandPutDTO, BrandGetDTO>();
+    //app.AddEndpoint<Category, CategoryPostDTO, CategoryPutDTO, CategoryGetDTO>();
+    //app.MapGet($"/api/categorieswithdata", async (IDbService db) =>
+    //{
+    //    try
+    //    {
+    //        return Results.Ok(await ((VehicleDbService)db).GetCategoriesWithAllRelatedDataAsync());
+    //    }
+    //    catch
+    //    {
+    //    }
+
+    //    return Results.BadRequest($"Couldn't get the requested products of type {typeof(Vehicle).Name}.");
+    //});
 }
 
 
