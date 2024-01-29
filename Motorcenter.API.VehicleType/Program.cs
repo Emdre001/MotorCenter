@@ -1,5 +1,6 @@
 using Motorcenter.API.Extensions.Extensions;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -58,19 +59,8 @@ void RegisterServices()
 
 void RegisterEndpoints(WebApplication app)
 {
-    //app.AddEndpoint<Category, CategoryPostDTO, CategoryPutDTO, CategoryGetDTO>();
-    //app.MapGet($"/api/categorieswithdata", async (IDbService db) =>
-    //{
-    //    try
-    //    {
-    //        return Results.Ok(await ((VehicleDbService)db).GetCategoriesWithAllRelatedDataAsync());
-    //    }
-    //    catch
-    //    {
-    //    }
-
-    //    return Results.BadRequest($"Couldn't get the requested products of type {typeof(Vehicle).Name}.");
-    //});
+    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
+   
 }
 
 
@@ -78,10 +68,10 @@ void ConfigureAutoMapper()
 {
     var config = new MapperConfiguration(cfg =>
     {
-        cfg.CreateMap<Brand, BrandPostDTO>().ReverseMap();
-        cfg.CreateMap<Brand, BrandPutDTO>().ReverseMap();
-        cfg.CreateMap<Brand, BrandGetDTO>().ReverseMap();
-        /*cfg.CreateMap<Brand, CategorySmallGetDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePostDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
         /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
          cfg.CreateMap<Size, OptionDTO>().ReverseMap();
          cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
