@@ -43,10 +43,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+RegisterEndpoints();
 
 app.UseCors();
 app.Run();
 
+void RegisterEndpoints()
+{
+    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
+
+}
 
 void RegisterServices()
 {
@@ -54,15 +60,6 @@ void RegisterServices()
     ConfigureAutoMapper();
     builder.Services.AddScoped<IDbService, VehicleDbService>();
 }
-
-
-
-void RegisterEndpoints(WebApplication app)
-{
-    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
-   
-}
-
 
 void ConfigureAutoMapper()
 {
