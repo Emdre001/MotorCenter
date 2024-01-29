@@ -3,7 +3,7 @@
 public class DbService : IDbService
 {
 
-    //_ istället för this. som vissar att de är en class variabel. 
+    //_ istället för this. som vissar att de är en class variabel. .
     private readonly MotorcenterContext _db;
     private readonly IMapper _mapper;
 
