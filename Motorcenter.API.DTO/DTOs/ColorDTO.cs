@@ -1,11 +1,4 @@
-﻿using Motorcenter.Data.Shared.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Motorcenter.API.DTO.DTOs;
+﻿namespace Motorcenter.API.DTO;
 
 // DTO-klass för att skapa en ny Color
 public class ColorPostDTO

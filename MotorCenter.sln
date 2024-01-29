@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.API.DTO", "Moto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.API.Extensions", "MotorCenter.API.Extensions\Motorcenter.API.Extensions.csproj", "{2474C906-7371-4066-81FF-EECAC7F61CC6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.API.Products", "Motorcenter.API.Products\Motorcenter.API.Products.csproj", "{4709B291-9060-4780-AD62-3D83DCB02BD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.API.Vehicle", "Motorcenter.API.Products\Motorcenter.API.Vehicle.csproj", "{4709B291-9060-4780-AD62-3D83DCB02BD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
