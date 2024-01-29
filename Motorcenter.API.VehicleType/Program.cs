@@ -1,7 +1,5 @@
 
 
-using Motorcenter.API.DTO;
-using Motorcenter.API.Extensions.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,10 +43,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+RegisterEndpoints();
 
 app.UseCors();
 app.Run();
 
+void RegisterEndpoints()
+{
+    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
+
+}
 
 void RegisterServices()
 {
@@ -56,15 +60,6 @@ void RegisterServices()
     ConfigureAutoMapper();
     builder.Services.AddScoped<IDbService, VehicleDbService>();
 }
-
-
-
-void RegisterEndpoints(WebApplication app)
-{
-    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
-   
-}
-
 
 void ConfigureAutoMapper()
 {
@@ -74,9 +69,9 @@ void ConfigureAutoMapper()
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
-         cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
-         cfg.CreateMap<Year, YearGetDTO>().ReverseMap();
-         cfg.CreateMap<Color, ColorGetDTO>().ReverseMap();
+        /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
+         cfg.CreateMap<Size, OptionDTO>().ReverseMap();
+         cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
     });
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);
