@@ -1,4 +1,3 @@
-using Motorcenter.Data.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,7 +54,7 @@ void RegisterEndpoints(WebApplication app)
     //app.AddEndpoint<FilterType, FilterTypePostDTO, FilterTypePutDTO, FilterTypeGetDTO>();
     //app.AddEndpoint<Option, OptionPostDTO, OptionPutDTO, OptionGetDTO>();
 
-    /*app.MapPost("/api/filterproducts", async (List<FilterRequestDTO> filterDTOs, IFilterService filterService) =>
+    app.MapPost("/api/filterproducts", async (List<FilterRequestDTO> filterDTOs, IFilterService filterService) =>
     {
         try
         {
@@ -68,7 +67,7 @@ void RegisterEndpoints(WebApplication app)
             // Log the exception details and return an appropriate error response
             return Results.Problem(ex.Message);
         }
-    });*/
+    });
     app.MapPost("/api/filterproducts", async (List<FilterRequestDTO> filterDTOs, IDbService db) =>
     {
         try
@@ -97,7 +96,7 @@ void ConfigureAutoMapper(IServiceCollection services)
         /*cfg.CreateMap<FilterType, FilterTypeGetDTO>().ReverseMap();
         cfg.CreateMap<Option, OptionPostDTO>().ReverseMap();
         cfg.CreateMap<Option, OptionPutDTO>().ReverseMap();
-        cfg.CreateMap<Option, OptionGetDTO>().ReverseMap();*/
+        cfg.CreateMap<Option, OptionGetDTO>().ReverseMap();
         cfg.CreateMap<CategoryFilter, CategoryFilterPostDTO>().ReverseMap();
         cfg.CreateMap<CategoryFilter, CategoryFilterDeleteDTO>().ReverseMap();
     });

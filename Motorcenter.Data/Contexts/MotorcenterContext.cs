@@ -1,40 +1,67 @@
 ﻿
-namespace Motorcenter.Data.Contexts
+using System.Reflection;
+
+namespace Motorcenter.Data.Contexts;
+
+// DbContext är en del av Entity Framework Core och hanterar databasåtkomst
+public class MotorcenterContext(DbContextOptions<MotorcenterContext> Builder) : DbContext(Builder)
 {
-    // DbContext är en del av Entity Framework Core och hanterar databasåtkomst
-    public class MotorcenterContext : DbContext
+    public DbSet<Brand> Brands => Set<Brand>();
+    public DbSet<Color> Colors => Set<Color>();
+    public DbSet<Filter> Filters => Set<Filter>();
+    public DbSet<Vehicle> Vehicles => Set<Vehicle>();
+    public DbSet<VehicleColor> VehicleColors => Set<VehicleColor>();
+    public DbSet<Entities.Type> Types => base.Set<Entities.Type>();
+    public DbSet<FilterType> Filtertypes => Set<FilterType>();
+    public DbSet<TypeVehicle> TypeVehicles => Set<TypeVehicle>();
+    public DbSet<Year> Years => Set<Year>();
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        // Konstruktorn tar emot inställningar för DbContext och skickar dem vidare till basklassen
-        public MotorcenterContext(DbContextOptions<MotorcenterContext> options) : base(options)
-        {
-        }
+        base.OnModelCreating(builder);
 
-        // DbSet representerar varje tabell i databasen, här finns det en för varje entitet
-        public DbSet<Brand> Brands { get; set; }
-        public DbSet<Color> Colors { get; set; }
-        public DbSet<Filter> Filters { get; set; }
-        public DbSet<Fuel> Fuels { get; set; }
-        public DbSet<Mileage> Mileages { get; set; }
-        public DbSet<Vehicle> Vehicles { get; set; }
-        public DbSet<VehicleType> VehicleTypes { get; set; }
-        public DbSet<BrandFilter> BrandFilters { get; set; }
-        public DbSet<BrandVehicleType> BrandVehicleTypes { get; set; }
+        #region Composite Keys
+        builder.Entity<VehicleColor>()
+            .HasKey(pc => new { pc.VehicleId, pc.ColorId });
+        builder.Entity<FilterType>()
+            .HasKey(ps => new { ps.TypeId, ps.FilterId });
+        builder.Entity<TypeVehicle>()
+            .HasKey(pc => new { pc.VehicleId, pc.TypeId });
+        #endregion
 
-        // OnModelCreating används för att konfigurera databasmodellen
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            // Kör basklassens OnModelCreating-metod
-            base.OnModelCreating(builder);
+        #region TypeFilter Many-to-Many Relationship
 
-            // Här sätts sammansatta nycklar för BrandFilter och BrandVehicleType-tabellerna
-            builder.Entity<BrandFilter>().HasKey(pc => new { pc.BrandId, pc.FilterId });
-            builder.Entity<BrandVehicleType>().HasKey(ps => new { ps.VehicleTypeId, ps.BrandId });
+        builder.Entity<Entities.Type>()
+            .HasMany(c => c.Filters)
+            .WithMany(f => f.VehicleTypes)
+            .UsingEntity<FilterType>();
+        #endregion
 
-            // Här sätts en många-till-många-relation mellan VehicleType och Filter genom BrandFilter-tabellen
-            builder.Entity<VehicleType>().HasMany(c => c.Filters).WithMany(f => f.VehicleTypes).UsingEntity<BrandFilter>();
+        #region TypeVehicle Many-to-Many Relationship
+        builder.Entity<Vehicle>()
+            .HasMany(p => p.VehicleTypes)
+            .WithMany(c => c.Vehicles)
+            .UsingEntity<TypeVehicle>();
+        #endregion
 
-            // Här sätts en många-till-många-relation mellan VehicleType och Brand genom BrandVehicleType-tabellen
-            builder.Entity<VehicleType>().HasMany(p => p.Brands).WithMany(c => c.VehicleTypes).UsingEntity<BrandVehicleType>();
-        }
+        #region VehicleColor Many-to-Many Relationship
+        builder.Entity<Vehicle>()
+            .HasMany(p => p.Colors)
+            .WithMany(c => c.Vehicles)
+            .UsingEntity<VehicleColor>();
+        #endregion
+
+        #region BrandVehicle One-to-Many Relationship
+        builder.Entity<Vehicle>()
+            .HasOne(p => p.Brand)
+            .WithMany(c => c.Vehicles)
+            .HasForeignKey(b => b.BrandId);
+        #endregion
+
+        #region YearVehicle One-to-Many Relationship
+        builder.Entity<Vehicle>()
+            .HasOne(p => p.Year)
+            .WithMany(c => c.Vehicles)
+            .HasForeignKey(b => b.YearId);
+        #endregion
     }
 }

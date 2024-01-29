@@ -13,9 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.API.DTO", "Moto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.API.Extensions", "MotorCenter.API.Extensions\Motorcenter.API.Extensions.csproj", "{2474C906-7371-4066-81FF-EECAC7F61CC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motorcenter.API.Filter", "Motorcenter.API.Filter\Motorcenter.API.Filter.csproj", "{3E7C8FC7-7E2B-426E-B9FD-36A522F2C92B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motorcenter.API.Products", "Motorcenter.API.Products\Motorcenter.API.Products.csproj", "{4709B291-9060-4780-AD62-3D83DCB02BD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.API.Products", "Motorcenter.API.Products\Motorcenter.API.Products.csproj", "{4709B291-9060-4780-AD62-3D83DCB02BD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{2474C906-7371-4066-81FF-EECAC7F61CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2474C906-7371-4066-81FF-EECAC7F61CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2474C906-7371-4066-81FF-EECAC7F61CC6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E7C8FC7-7E2B-426E-B9FD-36A522F2C92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E7C8FC7-7E2B-426E-B9FD-36A522F2C92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E7C8FC7-7E2B-426E-B9FD-36A522F2C92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E7C8FC7-7E2B-426E-B9FD-36A522F2C92B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4709B291-9060-4780-AD62-3D83DCB02BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4709B291-9060-4780-AD62-3D83DCB02BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4709B291-9060-4780-AD62-3D83DCB02BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU

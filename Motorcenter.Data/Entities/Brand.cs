@@ -1,10 +1,9 @@
 ﻿namespace Motorcenter.Data.Entities;
 
-public class Brand : IEntity 
+public class Brand : IEntity
 {
     public int Id { get; set; }
     public string Name { get; set; }
     public List<Vehicle>? Vehicles { get; set; }
-
-    public List<VehicleType> VehicleTypes { get; set; }
+    public OptionType OptionType { get; set; }
 }

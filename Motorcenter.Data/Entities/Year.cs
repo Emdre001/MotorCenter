@@ -1,6 +1,6 @@
 ﻿namespace Motorcenter.Data.Entities;
 
-public class Mileage : IEntity
+public class Year : IEntity
 {
     public int Id { get; set; }
     public string Range { get; set; }

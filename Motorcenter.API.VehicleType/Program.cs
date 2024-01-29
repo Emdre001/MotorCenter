@@ -1,12 +1,3 @@
-
-
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using Motorcenter.API.DTO.DTOs;
-using Motorcenter.Data.Contexts;
-using Motorcenter.Data.Entities;
-using Motorcenter.Data.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -1,6 +1,1 @@
-﻿namespace Motorcenter.API.Filter
-{
-    public class Usings
-    {
-    }
-}
+﻿global using Motorcenter.Data.Contexts;

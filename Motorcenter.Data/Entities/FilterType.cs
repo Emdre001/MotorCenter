@@ -1,7 +1,7 @@
 ﻿namespace Motorcenter.Data.Entities;
 
-public class BrandFilter
+public class FilterType
 {
     public int FilterId { get; set; }
-    public int BrandId { get; set; }
+    public int TypeId { get; set; }
 }
