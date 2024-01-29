@@ -1,6 +1,5 @@
-﻿namespace Motorcenter.API.DTO.DTOs
+﻿namespace Motorcenter.API.DTO;
+
+internal class VehicleColorDTO
 {
-    internal class VehicleColorDTO
-    {
-    }
 }

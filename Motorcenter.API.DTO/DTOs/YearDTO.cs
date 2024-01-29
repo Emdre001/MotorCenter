@@ -1,7 +1,6 @@
-﻿namespace Motorcenter.API.DTO.DTOs
-{
-    public class YearDTO
-    {
+﻿namespace Motorcenter.API.DTO;
 
-    }
+public class YearDTO
+{
+
 }
