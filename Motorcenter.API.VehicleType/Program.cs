@@ -1,3 +1,5 @@
+using Motorcenter.API.Extensions.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -40,7 +42,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-RegisterEndpoints();
+void RegisterEndpoints()
+{
+    app.AddEndpoint<>();
+
+
+
+   
+
+}
+
 
 app.UseCors();
 app.Run();
