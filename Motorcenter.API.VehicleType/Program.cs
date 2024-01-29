@@ -1,4 +1,4 @@
-using Motorcenter.API.Extensions.Extensions;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,15 +42,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-void RegisterEndpoints()
-{
-    app.AddEndpoint<>();
+RegisterEndpoints()
 
-
-
-   
-
-}
 
 
 app.UseCors();
