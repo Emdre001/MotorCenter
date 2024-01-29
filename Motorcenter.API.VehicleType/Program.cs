@@ -1,5 +1,7 @@
-using Motorcenter.API.Extensions.Extensions;
 
+
+using Motorcenter.API.DTO;
+using Motorcenter.API.Extensions.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -72,9 +74,9 @@ void ConfigureAutoMapper()
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
-        /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
-         cfg.CreateMap<Size, OptionDTO>().ReverseMap();
-         cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
+         cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
+         cfg.CreateMap<Year, YearGetDTO>().ReverseMap();
+         cfg.CreateMap<Color, ColorGetDTO>().ReverseMap();
     });
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Motorcenter.Data.Shared\Motorcenter.Data.Shared.csproj" />
+    <ProjectReference Include="..\Motorcenter.Data\Motorcenter.Data.csproj" />
   </ItemGroup>
 
 </Project>
