@@ -3,4 +3,4 @@ global using Microsoft.EntityFrameworkCore;
 global using Motorcenter.Data.Entities;
 global using Motorcenter.Data.Services;
 global using AutoMapper;
-global using Motorcenter.API.DTO.DTOs;
+global using Motorcenter.API.DTO;
