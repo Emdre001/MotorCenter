@@ -1,3 +1,5 @@
+using Motorcenter.API.Extensions.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -40,7 +42,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-RegisterEndpoints();
+void RegisterEndpoints()
+{
+    app.AddEndpoint<>();
+
+
+
+   
+
+}
+
 
 app.UseCors();
 app.Run();
@@ -57,7 +68,7 @@ void RegisterServices()
 
 void RegisterEndpoints()
 {
-    //app.AddEndpoint<Brand, BrandPostDTO, BrandPutDTO, BrandGetDTO>();
+    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
 }
 
 
@@ -65,10 +76,11 @@ void ConfigureAutoMapper()
 {
     var config = new MapperConfiguration(cfg =>
     {
-        cfg.CreateMap<Brand, BrandPostDTO>().ReverseMap();
-        cfg.CreateMap<Brand, BrandPutDTO>().ReverseMap();
-        cfg.CreateMap<Brand, BrandGetDTO>().ReverseMap();
-        /*cfg.CreateMap<Brand, CategorySmallGetDTO>().ReverseMap();
+        cfg.CreateMap<eShop.Data.Entities.Type, TypePostDTO>().ReverseMap();
+        cfg.CreateMap<eShop.Data.Entities.Type, TypePutDTO>().ReverseMap();
+        cfg.CreateMap<eShop.Data.Entities.Type, TypeGetDTO>().ReverseMap();
+        cfg.CreateMap<eShop.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
+        cfg.CreateMap<TypeVehicle, TypeVehicleDTO>().ReverseMap();
         /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
          cfg.CreateMap<Size, OptionDTO>().ReverseMap();
          cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
@@ -76,7 +88,3 @@ void ConfigureAutoMapper()
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);
 }
-
-
-
-
