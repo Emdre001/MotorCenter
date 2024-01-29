@@ -1,3 +1,4 @@
+using Motorcenter.API.DTO;
 using Motorcenter.API.Extensions.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,20 +43,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-void RegisterEndpoints()
-{
-    app.AddEndpoint<>();
-
-
-
-   
-
-}
+RegisterEndpoints();
 
 
 app.UseCors();
 app.Run();
 
+void RegisterEndpoints()
+{
+    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
+}
 
 void RegisterServices()
 {
@@ -64,22 +61,14 @@ void RegisterServices()
     builder.Services.AddScoped<IDbService, VehicleDbService>();
 }
 
-
-
-void RegisterEndpoints()
-{
-    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
-}
-
-
 void ConfigureAutoMapper()
 {
     var config = new MapperConfiguration(cfg =>
     {
-        cfg.CreateMap<eShop.Data.Entities.Type, TypePostDTO>().ReverseMap();
-        cfg.CreateMap<eShop.Data.Entities.Type, TypePutDTO>().ReverseMap();
-        cfg.CreateMap<eShop.Data.Entities.Type, TypeGetDTO>().ReverseMap();
-        cfg.CreateMap<eShop.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePostDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
         cfg.CreateMap<TypeVehicle, TypeVehicleDTO>().ReverseMap();
         /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
          cfg.CreateMap<Size, OptionDTO>().ReverseMap();
