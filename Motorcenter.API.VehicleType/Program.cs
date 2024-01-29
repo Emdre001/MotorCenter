@@ -1,4 +1,3 @@
-using Motorcenter.API.DTO;
 using Motorcenter.API.Extensions.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,8 +28,8 @@ builder.Services.AddCors(policy =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-RegisterServices();
-ConfigureAutoMapper();
+//RegisterServices();
+//ConfigureAutoMapper();
 
 var app = builder.Build();
 
@@ -43,37 +42,49 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-RegisterEndpoints();
+//void RegisterEndpoints()
+//{
+//    app.AddEndpoint<>();
+
+
+
+   
+
+//}
 
 
 app.UseCors();
 app.Run();
 
-void RegisterEndpoints()
-{
-    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
-}
 
-void RegisterServices()
-{
-    //builder.Services.
-    ConfigureAutoMapper();
-    builder.Services.AddScoped<IDbService, VehicleDbService>();
-}
+//void RegisterServices()
+//{
+//    //builder.Services.
+//    ConfigureAutoMapper();
+//    builder.Services.AddScoped<IDbService, VehicleDbService>();
+//}
 
-void ConfigureAutoMapper()
-{
-    var config = new MapperConfiguration(cfg =>
-    {
-        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePostDTO>().ReverseMap();
-        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
-        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
-        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
-        cfg.CreateMap<TypeVehicle, TypeVehicleDTO>().ReverseMap();
-        /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
-         cfg.CreateMap<Size, OptionDTO>().ReverseMap();
-         cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
-    });
-    var mapper = config.CreateMapper();
-    builder.Services.AddSingleton(mapper);
-}
+
+
+//void RegisterEndpoints()
+//{
+//    app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
+//}
+
+
+//void ConfigureAutoMapper()
+//{
+//    var config = new MapperConfiguration(cfg =>
+//    {
+//        cfg.CreateMap<eShop.Data.Entities.Type, TypePostDTO>().ReverseMap();
+//        cfg.CreateMap<eShop.Data.Entities.Type, TypePutDTO>().ReverseMap();
+//        cfg.CreateMap<eShop.Data.Entities.Type, TypeGetDTO>().ReverseMap();
+//        cfg.CreateMap<eShop.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
+//        cfg.CreateMap<TypeVehicle, TypeVehicleDTO>().ReverseMap();
+//        /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
+//         cfg.CreateMap<Size, OptionDTO>().ReverseMap();
+//         cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
+//    });
+//    var mapper = config.CreateMapper();
+//    builder.Services.AddSingleton(mapper);
+//}
