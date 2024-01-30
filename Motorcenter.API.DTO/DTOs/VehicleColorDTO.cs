@@ -1,5 +1,10 @@
 ﻿namespace Motorcenter.API.DTO;
 
-internal class VehicleColorDTO
+public class VehicleColorDTO
 {
+    public int VehicleId { get; set; }
+    public int ColorId { get; set; }
+
 }
+
+
