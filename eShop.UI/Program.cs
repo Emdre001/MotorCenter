@@ -1,4 +1,4 @@
-using eShop.UI;
+using Motorcenter.UI;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.API.Vehicle", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motorcenter.API.Filter", "Motorcenter.API.Filter\Motorcenter.API.Filter.csproj", "{748EA883-B72B-4522-8BD2-45240F4291B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShop.UI", "eShop.UI\eShop.UI.csproj", "{1A0B5E26-7F66-44F6-B0CC-C96A4BC7A94E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motorcenter.UI", "eShop.UI\Motorcenter.UI.csproj", "{1A0B5E26-7F66-44F6-B0CC-C96A4BC7A94E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
