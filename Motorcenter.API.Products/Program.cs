@@ -1,4 +1,4 @@
-
+using Motorcenter.Data.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,7 +47,6 @@ RegisterEndpoints();
 app.UseCors();
 app.Run();
 
-
 void RegisterServices()
 {
     //builder.Services.
@@ -55,11 +54,10 @@ void RegisterServices()
     builder.Services.AddScoped<IDbService, VehicleDbService>();
 }
 
-
-
 void RegisterEndpoints()
 {
-    //app.AddEndpoint<Vehicle, VehiclePostDTO, VehiclePutDTO, VehicleGetDTO>();
+    app.AddEndpoint<Vehicle, VehiclePostDTO, VehiclePutDTO, VehicleGetDTO>();
+
 }
 
 

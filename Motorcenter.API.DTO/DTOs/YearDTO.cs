@@ -1,9 +1,4 @@
-﻿using Motorcenter.Data.Entities;
-using Motorcenter.Data.Shared.Interfaces;
-
-namespace Motorcenter.API.DTO;
-
-
+﻿namespace Motorcenter.API.DTO;
 
 public class YearPostDTO
 {

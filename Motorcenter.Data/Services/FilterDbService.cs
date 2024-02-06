@@ -1,17 +1,14 @@
-﻿
-//using System.Linq.Expressions;
+﻿namespace Motorcenter.Data.Services;
 
-
-//namespace Motorcenter.Data.Services;
-
-//public class FilterDbService(MotorcenterContext db, IMapper mapper) : DbService(db, mapper)
-//{
-//    public override async Task<List<TDto>> GetAsync<TEntity, TDto>()
-//    {
-//        IncludeNavigationsFor<Filter>();
-//        var result = await base.GetAsync<TEntity, TDto>();
-//        return result;
-//    }
+public class FilterDbService(MotorcenterContext db, IMapper mapper) : DbService(db, mapper)
+{
+    public override async Task<List<TDto>> GetAsync<TEntity, TDto>()
+    {
+        //IncludeNavigationsFor<Filter>();
+        var result = await base.GetAsync<TEntity, TDto>();
+        return result;
+    }
+}
 
 //    public async Task<List<VehicleGetDTO>> FilterProducts(List<FilterRequestDTO> filters)
 //    {

@@ -1,6 +1,3 @@
-
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -76,7 +73,3 @@ void ConfigureAutoMapper()
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);
 }
-
-
-
-

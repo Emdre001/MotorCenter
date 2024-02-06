@@ -1,19 +1,16 @@
-﻿using System.Drawing;
-
-
-namespace Motorcenter.Data.Services;
+﻿namespace Motorcenter.Data.Services;
 
 public class VehicleDbService(MotorcenterContext db, IMapper mapper) : DbService(db, mapper)
 {
 
-    //public override async Task<List<TDto>> GetAsync<TEntity, TDto>()
-    //{
-    //    IncludeNavigationsFor<Filter>();
-    //    IncludeNavigationsFor<Color>();
-    //    var result = await base.GetAsync<TEntity, TDto>();
-    //    ////        return result;
+    public override async Task<List<TDto>> GetAsync<TEntity, TDto>()
+    {
+        //IncludeNavigationsFor<Filter>();
+        //IncludeNavigationsFor<Color>();
+        var result = await base.GetAsync<TEntity, TDto>();
+                return result;
 
-    //}
+    }
 
     //public async Task<List<VGetDTO>> GetProductsByCategoryAsync(int categoryId)
     //{
@@ -24,10 +21,4 @@ public class VehicleDbService(MotorcenterContext db, IMapper mapper) : DbService
     //    var products = await GetAsync<Product>(p => productIds.Contains(p.Id)).ToListAsync();
     //    return MapList<Product, ProductGetDTO>(products);
     //}
-
-
-
-
 }
-
-
