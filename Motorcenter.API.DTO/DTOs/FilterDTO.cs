@@ -23,8 +23,12 @@ public class FilterPutDTO : FilterPostDTO
 // DTO-klass för att hämta information om ett Filter, ärver från FilterPutDTO för att inkludera Id och andra egenskaper
 public class FilterGetDTO : FilterPutDTO
 {
-    // Inga ytterligare egenskaper, ärver från FilterPutDTO för att inkludera Id och andra egenskaper
+    public List<OptionDTO>? Options { get; set; }
 }
 
+public class FilterRequestDTO : FilterGetDTO
+{
+    public int CategoryId { get; set; }
+}
 
 

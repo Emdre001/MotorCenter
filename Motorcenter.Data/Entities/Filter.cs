@@ -7,4 +7,6 @@ public class Filter : IEntity
     public string TypeName { get; set; }
     public List<Type>? VehicleTypes { get; set; }
     public OptionType OptionType { get; set; }
+
+    //public List<Option> Options { get; } = [];
 }

@@ -4,3 +4,4 @@ global using Microsoft.EntityFrameworkCore;
 global using Motorcenter.API.DTO;
 global using Motorcenter.Data.Contexts;
 global using Motorcenter.Data.Entities;
+global using Motorcenter.API.Extensions.Extensions;
