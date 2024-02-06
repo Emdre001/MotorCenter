@@ -1,7 +1,9 @@
 ﻿namespace Motorcenter.Data.Entities;
 
-public class FilterType
+public class FilterType : IEntity
 {
-    public int FilterId { get; set; }
-    public int TypeId { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public List<Filter> Filters { get; } = [];
 }
