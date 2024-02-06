@@ -47,10 +47,10 @@ RegisterEndpoints();
 app.UseCors();
 app.Run();
 
-void RegisterEndpoints(WebApplication app)
+void RegisterEndpoints()
 {
     app.AddEndpoint<Filter, FilterPostDTO, FilterPutDTO, FilterGetDTO>();
-    app.AddEndpoint<CategoryFilter, CategoryFilterPostDTO, CategoryFilterDeleteDTO>();
+    //app.AddEndpoint<CategoryFilter, CategoryFilterPostDTO, CategoryFilterDeleteDTO>();
     //app.AddEndpoint<FilterType, FilterTypePostDTO, FilterTypePutDTO, FilterTypeGetDTO>();
     //app.AddEndpoint<Option, OptionPostDTO, OptionPutDTO, OptionGetDTO>();
 
@@ -67,33 +67,28 @@ void RegisterEndpoints(WebApplication app)
             // Log the exception details and return an appropriate error response
             return Results.Problem(ex.Message);
         }
-    });*/
-
-    void RegisterServices()
-    {
-        //builder.Services.
-        ConfigureAutoMapper();
-        builder.Services.AddScoped<IDbService, VehicleDbService>();
-    }
-
-    void ConfigureAutoMapper()
-    {
-        var config = new MapperConfiguration(cfg =>
-        {
-            cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePostDTO>().ReverseMap();
-            cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
-            cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
-            cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
-            /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
-             cfg.CreateMap<Size, OptionDTO>().ReverseMap();
-             cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
-        });
-        var mapper = config.CreateMapper();
-        builder.Services.AddSingleton(mapper);
-    }
+    });*/ 
 }
 
+void RegisterServices()
+{
+    //builder.Services.
+    ConfigureAutoMapper();
+    builder.Services.AddScoped<IDbService, VehicleDbService>();
+}
 
-
-
-
+void ConfigureAutoMapper()
+{
+    var config = new MapperConfiguration(cfg =>
+    {
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePostDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
+        /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
+         cfg.CreateMap<Size, OptionDTO>().ReverseMap();
+         cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/
+    });
+    var mapper = config.CreateMapper();
+    builder.Services.AddSingleton(mapper);
+}
