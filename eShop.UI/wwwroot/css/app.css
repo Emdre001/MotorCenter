@@ -30,3 +30,13 @@ h1:focus {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.cart-count {
+    top: 0;
+    right: 0;
+    padding: 2px 6px;
+    line-height: 1;
+    margin-top: -4px;
+    margin-right: -8px;
+    font-size: 9px;
+}
