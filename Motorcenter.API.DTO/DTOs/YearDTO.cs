@@ -1,13 +1,14 @@
-﻿namespace Motorcenter.API.DTO;
+﻿
+namespace Motorcenter.API.DTO;
 
 public class YearPostDTO
 {
-    public string name { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
 }
 
 public class YearPutDTO : YearPostDTO
 {
-    public int id { get; set; }
+    public int Id { get; set; }
 }
 
 public class YearGetDTO : YearPutDTO

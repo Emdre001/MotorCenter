@@ -61,6 +61,21 @@ public class DbService : IDbService
 
         return true;
     }
+    public bool Delete<TEntity, TDto>(TDto dto)
+        where TEntity : class where TDto : class
+    {
+        try
+        {
+            var entity = _mapper.Map<TEntity>(dto);
+            if (entity is null) return false;
+            _db.Remove(entity);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 
     public async Task<bool> SaveChangesAsync() => await _db.SaveChangesAsync() >= 0;
 
