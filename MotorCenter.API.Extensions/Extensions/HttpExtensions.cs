@@ -1,4 +1,6 @@
-﻿namespace Motorcenter.API.Extensions.Extensions;
+﻿
+
+namespace Motorcenter.API.Extensions.Extensions;
 
 public static class HttpExtensions
 {
