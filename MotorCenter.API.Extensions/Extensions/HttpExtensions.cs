@@ -6,7 +6,7 @@ namespace Motorcenter.API.Extensions.Extensions;
 
 public static class HttpExtensions
 {
-   public static void AddEndpoint<TEntity, TPostDto, TPutDto, TGetDto>(this WebApplication app) //we dont need Delete, since it only need the Id
+   public static void AddEndpoint<TEntity, TPostDto, TPutDto, TGetDto>(this WebApplication app) 
    where TEntity : class, IEntity where TPostDto : class where TPutDto : class where TGetDto : class
     {
         var node = typeof(TEntity).Name.ToLower();
@@ -17,17 +17,17 @@ public static class HttpExtensions
         app.MapDelete($"/api/{node}s/" + "{id}", HttpDeleteAsync<TEntity>);
     }
 
-    public static void AddEndpoint<TEntity, TDto>(this WebApplication app)
-where TEntity : class where TDto : class
+    public static void AddEndpoint<TEntity, TPostDto, TDeleteDto>(this WebApplication app)
+   where TEntity : class where TPostDto : class where TDeleteDto : class
     {
         var node = typeof(TEntity).Name.ToLower();
-        app.MapPost($"/api/{node}s", HttpPostReferenceAsync<TEntity, TDto>);
+        app.MapPost($"/api/{node}s", HttpPostReferenceAsync<TEntity, TPostDto>);
 
-        app.MapDelete($"/api/{node}s", async (IDbService db, [FromBody] TDto dto) =>
+        app.MapDelete($"/api/{node}s", async (IDbService db, [FromBody] TDeleteDto dto) =>
         {
             try
             {
-                if (!db.Delete<TEntity, TDto>(dto)) return Results.NotFound();
+                if (!db.Delete<TEntity, TDeleteDto>(dto)) return Results.NotFound();
 
                 if (await db.SaveChangesAsync()) return Results.NoContent();
             }
@@ -37,7 +37,6 @@ where TEntity : class where TDto : class
 
             return Results.BadRequest($"Couldn't delete the {typeof(TEntity).Name} entity.");
         });
-
     }
 
     public static async Task<IResult> HttpPostReferenceAsync<TEntity, TPostDto>(this IDbService db, TPostDto dto)
