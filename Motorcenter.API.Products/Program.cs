@@ -59,6 +59,7 @@ void RegisterEndpoints()
 {
     app.AddEndpoint<Vehicle, VehiclePostDTO, VehiclePutDTO, VehicleGetDTO>();
     app.AddEndpoint<Brand, BrandPostDTO, BrandPutDTO, BrandGetDTO>();
+    app.AddEndpoint<Color, ColorPostDTO, ColorPutDTO, ColorGetDTO>();
     app.AddEndpoint<TypeVehicle, TypeVehiclePostDTO, TypeVehicleDeleteDTO>();
     app.AddEndpoint<VehicleColor, VehicleColorPostDTO, VehicleColorDeleteDTO>();
 
