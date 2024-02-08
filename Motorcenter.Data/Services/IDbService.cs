@@ -21,6 +21,9 @@ public interface IDbService
     Task<bool> DeleteAsync<TEntity>(int id)
    where TEntity : class, IEntity;
 
+    bool Delete<TEntity, TDto>(TDto dto)
+        where TEntity : class where TDto : class;
+
     Task<bool> SaveChangesAsync();
 }
 
