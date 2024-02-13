@@ -40,3 +40,9 @@ h1:focus {
     margin-right: -8px;
     font-size: 9px;
 }
+@media screen and (max-width: 470px) {
+    #aside-menu, #viewport {
+        height: auto !important;
+        flex-direction: column;
+    }
+}
