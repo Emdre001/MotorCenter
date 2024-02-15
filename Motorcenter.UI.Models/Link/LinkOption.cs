@@ -1,11 +1,8 @@
-﻿
-
-namespace Motorcenter.UI.Models.Link;
-
+﻿namespace Motorcenter.UI.Models.Link;
 
 public class LinkOption
 {
-    public int id { get; set; }
-      public string name { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
     public bool IsSelected { get; set; }
 }

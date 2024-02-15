@@ -1,5 +1,4 @@
-﻿
-namespace Motorcenter.UI.Models.Link;
+﻿namespace Motorcenter.UI.Models.Link;
 
 public class LinkGroup
 {

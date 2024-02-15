@@ -1,5 +1,4 @@
-﻿
-
+﻿@using Motorcenter.UI.Models.Link
 
 ﻿@if (LinkOption is not null)
 {
@@ -8,10 +7,9 @@
         {
             <i class="bi-caret-right"></i>
         }
-        @LinkOption?.name
+        @LinkOption?.Name
     </button>
 }
-
 
 @code {
     [Parameter] public LinkOption? LinkOption { get; set; }
