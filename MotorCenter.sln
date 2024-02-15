@@ -21,8 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.UI", "eShop.UI\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Motorcenter.UI.Models", "Motorcenter.UI.Models\Motorcenter.UI.Models.csproj", "{02CC43F1-F236-4C94-BC27-C59E1BD67D4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotorCenter.UI.Razor", "MotorCenter.UI.Razor\MotorCenter.UI.Razor.csproj", "{861CE4A2-2826-466F-9010-C95A3420797D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,10 +63,6 @@ Global
 		{02CC43F1-F236-4C94-BC27-C59E1BD67D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02CC43F1-F236-4C94-BC27-C59E1BD67D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02CC43F1-F236-4C94-BC27-C59E1BD67D4F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{861CE4A2-2826-466F-9010-C95A3420797D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{861CE4A2-2826-466F-9010-C95A3420797D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{861CE4A2-2826-466F-9010-C95A3420797D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{861CE4A2-2826-466F-9010-C95A3420797D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

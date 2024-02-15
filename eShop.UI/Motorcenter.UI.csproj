@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Motorcenter.UI.Models\Motorcenter.UI.Models.csproj" />
-    <ProjectReference Include="..\MotorCenter.UI.Razor\MotorCenter.UI.Razor.csproj" />
   </ItemGroup>
 
 </Project>
