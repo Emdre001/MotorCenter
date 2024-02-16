@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Motorcenter.UI.Models.Link;
 
-namespace Motorcenter.UI.Models.Link
+public class LinkOption
 {
-    internal class LinkOption
-    {
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public bool IsSelected { get; set; }
 }

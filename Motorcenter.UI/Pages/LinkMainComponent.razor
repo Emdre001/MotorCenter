@@ -1,0 +1,19 @@
+﻿@using Motorcenter.UI.Models.Link;
+
+<article>
+    <div class="bg-body">@LinkGroup?.Name</div>
+    <div>
+        <div>
+            @foreach (var Link in LinkGroup!.LinkOption)
+            {
+                <LinkComponent LinkOption="Link" />
+            }
+        </div>
+   </div>
+</article>
+
+
+
+@code {
+    [Parameter] public  LinkGroup? LinkGroup { get; set; }
+}

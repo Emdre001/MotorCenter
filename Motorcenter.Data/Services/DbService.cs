@@ -2,8 +2,6 @@
 
 public class DbService : IDbService
 {
-
-    //_ istället för this. som vissar att de är en class variabel. .
     private readonly MotorcenterContext _db;
     private readonly IMapper _mapper;
 
@@ -60,6 +58,21 @@ public class DbService : IDbService
         catch { return false; }
 
         return true;
+    }
+    public bool Delete<TEntity, TDto>(TDto dto)
+        where TEntity : class where TDto : class
+    {
+        try
+        {
+            var entity = _mapper.Map<TEntity>(dto);
+            if (entity is null) return false;
+            _db.Remove(entity);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public async Task<bool> SaveChangesAsync() => await _db.SaveChangesAsync() >= 0;

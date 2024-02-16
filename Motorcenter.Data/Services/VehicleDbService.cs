@@ -5,8 +5,8 @@ public class VehicleDbService(MotorcenterContext db, IMapper mapper) : DbService
 
     public override async Task<List<TDto>> GetAsync<TEntity, TDto>()
     {
-        //IncludeNavigationsFor<Filter>();
-        //IncludeNavigationsFor<Color>();
+        IncludeNavigationsFor<Filter>();
+        IncludeNavigationsFor<Color>();
         var result = await base.GetAsync<TEntity, TDto>();
                 return result;
 

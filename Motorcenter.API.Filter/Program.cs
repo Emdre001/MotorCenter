@@ -81,10 +81,10 @@ void ConfigureAutoMapper()
 {
     var config = new MapperConfiguration(cfg =>
     {
-        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePostDTO>().ReverseMap();
-        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
-        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
-        cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Filter, FilterPostDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Filter, FilterPutDTO>().ReverseMap();
+        cfg.CreateMap<Motorcenter.Data.Entities.Filter, FilterGetDTO>().ReverseMap();
+        //cfg.CreateMap<Motorcenter.Data.Entities.Filter, FilterSmallGetDTO>().ReverseMap();
         /* cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
          cfg.CreateMap<Size, OptionDTO>().ReverseMap();
          cfg.CreateMap<Color, OptionDTO>().ReverseMap();*/

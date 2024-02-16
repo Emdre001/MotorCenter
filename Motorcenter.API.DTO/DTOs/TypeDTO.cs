@@ -7,7 +7,7 @@ public class TypePostDTO
 
 public class TypePutDTO : TypePostDTO
 {
-    public int id { get; set; }
+    public int Id { get; set; }
 }
 
 public class TypeGetDTO : TypePutDTO

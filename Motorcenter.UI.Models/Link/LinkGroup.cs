@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Motorcenter.UI.Models.Link;
 
-namespace Motorcenter.UI.Models.Link
+public class LinkGroup
 {
-    internal class LinkGroup
-    {
-    }
+    public string Name { get; set; } = string.Empty;
+    public List<LinkOption> LinkOption { get; set; } = [];
 }
+
