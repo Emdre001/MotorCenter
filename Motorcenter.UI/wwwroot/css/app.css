@@ -54,6 +54,34 @@ h1:focus {
 }
 
 nav a img {
-    height: 40px;
+    height: 49px;
+}
+carousel.slide {
+    width: 50%;
+}
+
+#carouselExampleCaptions {
+    width: 75%; /* Öka bredden enligt dina önskemål */
+    margin: 0 auto; /* Centrera karusellen horisontellt */
+}
+
+.carousel-item img {
+    width: 100%; /* Sätt bredden till 100% för att anpassa sig till föräldrarelementet */
+    height: 350px; /* Ange önskad höjd för bilderna */
+    object-fit: cover; /* Använd "cover" för att behålla bildförhållandet och täcka hela området */
+}
+
+#carouselExampleCaptions .carousel-inner .carousel-item:first-child {
+    width: 120%; /* Anpassa bredden för den första bilden*/
+}
+
+#carouselExampleCaptions .carousel-control-prev {
+    margin-left: -5%; /* Justera marginen för att undvika att knappen döljs helt */
+}
+
+#carouselExampleCaptions .carousel-item:nth-child(2) img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
 }
 
