@@ -69,15 +69,12 @@ carousel.slide {
     width: 100%; /* Sätt bredden till 100% för att anpassa sig till föräldrarelementet */
     height: 350px; /* Ange önskad höjd för bilderna */
     object-fit: cover; /* Använd "cover" för att behålla bildförhållandet och täcka hela området */
+    position: relative;
 }
 
-#carouselExampleCaptions .carousel-inner .carousel-item:first-child {
-    width: 120%; /* Anpassa bredden för den första bilden*/
-}
 
-#carouselExampleCaptions .carousel-control-prev {
-    margin-left: -5%; /* Justera marginen för att undvika att knappen döljs helt */
-}
+
+
 
 #carouselExampleCaptions .carousel-item:nth-child(2) img {
     width: 100%;
@@ -85,3 +82,13 @@ carousel.slide {
     object-fit: cover;
 }
 
+element.style {
+    min-width: 160px;
+    max-width: 200px;
+    position: absolute;
+}
+
+
+.carousel {
+    flex-grow: 1; /* Tillåt karusellen att expandera för att fylla resterande utrymme */
+}
