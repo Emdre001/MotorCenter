@@ -90,7 +90,7 @@ element.style {
 
 
 .carousel {
-    flex-grow: 1; /* Tillåt karusellen att expandera för att fylla resterande utrymme */
+    flex-grow: 1; 
 }
 
 .carousel-item img {
@@ -100,17 +100,29 @@ element.style {
     position: relative;
 }
 
-.w-100 {
-    width: 100% !important;
+.carousel-caption {
+    position: absolute;
+    top: 5%;
+    color: black;
+    width: 40%;
 }
 
-p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    color: #dbcaca;
+    .carousel-caption h5, .carousel-caption p {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Lägg till skugga för att förbättra läsbarheten på ljusa bilder */
+    }
+
+.carousel-inner {
+    position: relative;
 }
 
-.h5, h5 {
-    font-size: 2rem;
-    color: #dbcaca;
+.carousel-item:nth-child(2) .carousel-caption {
+    position: absolute;
+    top: 5%;
+    color: white;
+    width: 70%;
+    padding-top: 0.0rem;
 }
+
+    .carousel-item:nth-child(2) .carousel-caption h5, .carousel-item:nth-child(2) .carousel-caption p {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Lägg till skugga för att förbättra läsbarheten på ljusa bilder */
+    }
