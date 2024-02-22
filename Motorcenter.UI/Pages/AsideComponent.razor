@@ -5,13 +5,26 @@
 
     @foreach (var group in CaregoryLinkGroups)
     {
-        <LinkMainComponent LinkGroup="group" />
+        <LinkMainComponent LinkGroup="group" OnAsideCall="OnAsideCallback" />
     }
 
 </aside>
  
 
 @code {
+
+    [Parameter] public EventCallback OnChange { get; set; }
+    void OnAsideCallback(int id )
+    {
+        if (OnChange.HasDelegate)
+        {
+
+            OnChange.InvokeAsync();
+
+        }
+    }
+
+
     List<LinkGroup> CaregoryLinkGroups { get; set; } = new()
     {
           new LinkGroup()
