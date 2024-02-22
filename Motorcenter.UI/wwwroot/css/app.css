@@ -72,15 +72,15 @@ carousel.slide {
     position: relative;
 }
 
-
-
-
-
-#carouselExampleCaptions .carousel-item:nth-child(2) img {
+.carousel-item:nth-child(2) img {
     width: 100%;
-    height: 450px;
+    height: 350px;
     object-fit: cover;
+   position:relative;
 }
+
+
+
 
 element.style {
     min-width: 160px;
@@ -91,4 +91,26 @@ element.style {
 
 .carousel {
     flex-grow: 1; /* Tillåt karusellen att expandera för att fylla resterande utrymme */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    position: relative;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #dbcaca;
+}
+
+.h5, h5 {
+    font-size: 2rem;
+    color: #dbcaca;
 }
