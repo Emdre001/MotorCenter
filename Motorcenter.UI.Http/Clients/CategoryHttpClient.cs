@@ -8,7 +8,7 @@ public class CategoryHttpClient
     public CategoryHttpClient(HttpClient httpClient)
     {
         _httpClient = httpClient;
-        _httpClient.BaseAddress = new Uri($"{_BaseAddress}");
+        _httpClient.BaseAddress = new Uri($"{_BaseAddress} categorys");
     }
 
 }

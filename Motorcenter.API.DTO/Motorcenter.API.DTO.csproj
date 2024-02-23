@@ -9,6 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Motorcenter.Data.Shared\Motorcenter.Data.Shared.csproj" />
     <ProjectReference Include="..\Motorcenter.Data\Motorcenter.Data.csproj" />
+    <ProjectReference Include="..\Motorcenter.UI.Http\Motorcenter.UI.Http.csproj" />
+    <ProjectReference Include="..\Motorcenter.UI.Models\Motorcenter.UI.Models.csproj" />
   </ItemGroup>
 
 </Project>
