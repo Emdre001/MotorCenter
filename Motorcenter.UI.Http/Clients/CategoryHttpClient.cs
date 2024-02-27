@@ -1,4 +1,5 @@
-﻿global using System.Text.Json;
+﻿namespace Motorcenter.UI.Http.Client;
+global using System.Text.Json;
 global using System.Net.Http;
 
 namespace Motorcenter.UI.Http.Clients;
@@ -17,6 +18,12 @@ public class CategoryHttpClient
 
     }
 
+    public async Task<List<TypeGetDTO>> GetCategoriesAsync()
+    {
+        try
+        {
+            using HttpResponseMessage response = await Client.GetAsync("");
+            response.EnsureSuccessStatusCode();
   /*  public async Task<List<TypeGetDTO>> GetCategoriesAsync()
     {
         try
@@ -27,6 +34,7 @@ public class CategoryHttpClient
             var result = JsonSerializer.Deserialize<List<TypeGetDTO>>(await response.Content.ReadAsStreamAsync(),
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
+
             return result ?? [];
         }
         catch (Exception ex)
@@ -34,10 +42,4 @@ public class CategoryHttpClient
             return [];
         }
     }
-
-    */
-
-
-
-
 }
