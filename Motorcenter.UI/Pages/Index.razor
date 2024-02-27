@@ -1,12 +1,15 @@
 ﻿@page "/"
+@using Motorcenter.UI.Service
+
+@inject UIService Service
 
 <NavComponent />
 <MenuComponent/>
 <div class=" d-flex">
-
-    <AsideComponent  OnChange="OnChange"/>
-    <CarouselComponent />
-
+     <CascadingValue Value="Service" Name="Service">
+        <AsideComponent  OnChange="OnChange"/>
+        <CarouselComponent />
+      </CascadingValue>
 
 </div>
 

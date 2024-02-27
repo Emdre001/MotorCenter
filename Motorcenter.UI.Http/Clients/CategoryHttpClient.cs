@@ -1,14 +1,24 @@
-﻿namespace Motorcenter.UI.Http.Clients;
+﻿using System.Text.Json;
+
+namespace Motorcenter.UI.Http.Client;
 
 public class CategoryHttpClient
 {
-    private readonly HttpClient _httpClient;
-    string _BaseAddress = "https://localhost:7054/api/";
+
+    public HttpClient Client { get; }
+    string BaseAddress = "https://localhost:7054/api/";
+
 
     public CategoryHttpClient(HttpClient httpClient)
     {
-        _httpClient = httpClient;
-        _httpClient.BaseAddress = new Uri($"{_BaseAddress} categorys");
+        Client = httpClient;
+        Client.BaseAddress = new Uri($"{BaseAddress} categorys");
+
     }
+
+
+
+
+
 
 }
