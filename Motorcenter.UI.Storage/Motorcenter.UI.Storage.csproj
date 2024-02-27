@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Motorcenter.UI.Models\Motorcenter.UI.Models.csproj" />
-    <ProjectReference Include="..\Motorcenter.UI.Storage\Motorcenter.UI.Storage.csproj" />
+    <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
+    <PackageReference Include="Blazored.SessionStorage" Version="2.4.0" />
   </ItemGroup>
 
 </Project>

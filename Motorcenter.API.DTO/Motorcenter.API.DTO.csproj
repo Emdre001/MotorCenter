@@ -11,6 +11,7 @@
     <ProjectReference Include="..\Motorcenter.Data\Motorcenter.Data.csproj" />
     <ProjectReference Include="..\Motorcenter.UI.Http\Motorcenter.UI.Http.csproj" />
     <ProjectReference Include="..\Motorcenter.UI.Models\Motorcenter.UI.Models.csproj" />
+    <ProjectReference Include="..\Motorcenter.UI.Storage\Motorcenter.UI.Storage.csproj" />
   </ItemGroup>
 
 </Project>

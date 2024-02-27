@@ -1,10 +1,8 @@
 ﻿
 
-using AutoMapper;
-using Motorcenter.UI.Http.Client;
-using Motorcenter.UI.Models.Link;
 
-namespace Motorcenter.UI.Service;
+
+namespace Motorcenter.UI.Services;
 
 public class UIService(CategoryHttpClient categoryHttp)
 {
