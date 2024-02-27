@@ -1,6 +1,5 @@
-﻿@page "/"
-@using Motorcenter.UI.Services
-
+﻿@using Motorcenter.UI.Services
+@page "/"
 @inject UIService Service
 
 <NavComponent />
@@ -10,8 +9,10 @@
 
     <AsideComponent  OnChange="OnChange"/>
     <div class="mr-auto">
-        <CarouselComponent />
-        <CardListComponent />
+        <CascadingValue Value="Service" Name="Service">
+            <AsideComponent OnChange="OnChange" />
+            
+        </CascadingValue>
     </div>
     
 </div>
@@ -21,10 +22,12 @@
     <ProductComponent />
 </div> 
 
-@code {
 
+@code 
+{
     void OnChange()
     {
 
     }
+
 }
