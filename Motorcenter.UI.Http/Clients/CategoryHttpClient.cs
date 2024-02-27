@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace Motorcenter.UI.Http.Client;
+﻿namespace Motorcenter.UI.Http.Client;
 
 public class CategoryHttpClient
 {
@@ -16,9 +14,21 @@ public class CategoryHttpClient
 
     }
 
+    public async Task<List<TypeGetDTO>> GetCategoriesAsync()
+    {
+        try
+        {
+            using HttpResponseMessage response = await Client.GetAsync("");
+            response.EnsureSuccessStatusCode();
 
+            var result = JsonSerializer.Deserialize<List<TypeGetDTO>>(await response.Content.ReadAsStreamAsync(),
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
-
-
-
+            return result ?? [];
+        }
+        catch (Exception ex)
+        {
+            return [];
+        }
+    }
 }

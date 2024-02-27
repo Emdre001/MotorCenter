@@ -1,20 +1,11 @@
-﻿
-
-using AutoMapper;
-using Motorcenter.UI.Http.Client;
-using Motorcenter.UI.Models.Link;
-
-namespace Motorcenter.UI.Service;
+﻿namespace Motorcenter.UI.Service;
 
 public class UIService(CategoryHttpClient categoryHttp)
 {
-   
-
    List<TypeGetDTO> TypeVehicle { get; set; } = [];
     public List<LinkGroup> TypeLinkGroups { get; private set; } =
     [
         new LinkGroup { Name ="Categories",
-
 
            LinkOption = new()
            {
