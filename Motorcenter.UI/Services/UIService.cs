@@ -1,4 +1,8 @@
-﻿namespace Motorcenter.UI.Service;
+﻿
+
+
+
+namespace Motorcenter.UI.Services;
 
 public class UIService(CategoryHttpClient categoryHttp)
 {

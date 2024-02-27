@@ -1,4 +1,8 @@
 ﻿namespace Motorcenter.UI.Http.Client;
+global using System.Text.Json;
+global using System.Net.Http;
+
+namespace Motorcenter.UI.Http.Clients;
 
 public class CategoryHttpClient
 {
@@ -7,9 +11,9 @@ public class CategoryHttpClient
     string BaseAddress = "https://localhost:7054/api/";
 
 
-    public CategoryHttpClient(HttpClient httpClient)
+    public CategoryHttpClient(HttpClient _httpClient)
     {
-        Client = httpClient;
+        Client = _httpClient;
         Client.BaseAddress = new Uri($"{BaseAddress} categorys");
 
     }
@@ -20,9 +24,16 @@ public class CategoryHttpClient
         {
             using HttpResponseMessage response = await Client.GetAsync("");
             response.EnsureSuccessStatusCode();
+  /*  public async Task<List<TypeGetDTO>> GetCategoriesAsync()
+    {
+        try
+        {
+            using HttpResponseMessage response = await Client.GetAsync("");
+            response.EnsureSuccessStatusCode();
 
             var result = JsonSerializer.Deserialize<List<TypeGetDTO>>(await response.Content.ReadAsStreamAsync(),
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
 
             return result ?? [];
         }
