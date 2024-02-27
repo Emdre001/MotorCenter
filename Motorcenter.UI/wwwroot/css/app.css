@@ -72,15 +72,30 @@ carousel.slide {
     position: relative;
 }
 
+.product-card {
+    margin-right: 1rem !important;
+    margin-left: 1rem !important;
+}
+
+.product-card:first-child {
+        margin-left: 10rem;
+    }
+
+.product-card:last-child {
+        margin-left: 10rem;
+    }
+
+.mx-auto {
+    margin-right: 0rem !important;
+    margin-left: auto !important;
+}
+
 .carousel-item:nth-child(2) img {
     width: 100%;
     height: 350px;
     object-fit: cover;
    position:relative;
 }
-
-
-
 
 element.style {
     min-width: 160px;
@@ -104,7 +119,7 @@ element.style {
     position: absolute;
     top: 5%;
     color: black;
-    width: 40%;
+    width: 53%;
 }
 
     .carousel-caption h5, .carousel-caption p {
@@ -126,3 +141,4 @@ element.style {
     .carousel-item:nth-child(2) .carousel-caption h5, .carousel-item:nth-child(2) .carousel-caption p {
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Lägg till skugga för att förbättra läsbarheten på ljusa bilder */
     }
+
