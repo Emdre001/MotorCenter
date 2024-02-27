@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Motorcenter.API.DTO\Motorcenter.API.DTO.csproj" />
     <ProjectReference Include="..\Motorcenter.UI.Models\Motorcenter.UI.Models.csproj" />
     <ProjectReference Include="..\Motorcenter.UI.Storage\Motorcenter.UI.Storage.csproj" />
