@@ -1,4 +1,4 @@
-﻿global using Motorcenter.UI.Http.Clients;
+﻿global using eShop.UI.Http.Clients;
 global using Motorcenter.API.DTO;
 global using Motorcenter.UI.Models.Link;
 global using Motorcenter.UI;
