@@ -61,7 +61,7 @@ carousel.slide {
 }
 
 #carouselExampleCaptions {
-    width: 75%; /* Öka bredden enligt dina önskemål */
+    /*width: 75%;*/ /* Öka bredden enligt dina önskemål */
     margin: 0 auto; /* Centrera karusellen horisontellt */
 }
 
@@ -142,3 +142,9 @@ element.style {
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Lägg till skugga för att förbättra läsbarheten på ljusa bilder */
     }
 
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Justera detta värde om det behövs för att kontrollera staplingsordningen */
+}
