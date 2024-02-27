@@ -7,12 +7,13 @@
 
 <div class=" d-flex">
 
-    <AsideComponent  OnChange="OnChange"/>
+    <CascadingValue Value="Service" Name="Service">
+        <AsideComponent OnChange="OnChange" />
+    </CascadingValue>
+    
     <div class="mr-auto">
-        <CascadingValue Value="Service" Name="Service">
-            <AsideComponent OnChange="OnChange" />
-            
-        </CascadingValue>
+    <CarouselComponent/>
+    <CardListComponent/>
     </div>
     
 </div>
