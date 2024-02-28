@@ -14,6 +14,9 @@ builder.Services.AddDbContext<MotorcenterContext>(
         options.UseSqlServer(
             builder.Configuration.GetConnectionString("MotorcenterConnection")));
 
+/**********
+ ** CORS Cross-Origin Resource Sharing**
+ **********/
 
 builder.Services.AddCors(policy =>
 {
@@ -57,7 +60,7 @@ void RegisterServices()
 
 void RegisterEndpoints()
 {
-    //app.AddEndpoint<Vehicle, VehiclePostDTO, VehiclePutDTO, VehicleGetDTO>();
+    app.AddEndpoint<Vehicle, VehiclePostDTO, VehiclePutDTO, VehicleGetDTO>();
     //app.AddEndpoint<Brand, BrandPostDTO, BrandPutDTO, BrandGetDTO>();
     //app.AddEndpoint<Color, ColorPostDTO, ColorPutDTO, ColorGetDTO>();
     //app.AddEndpoint<TypeVehicle, TypeVehiclePostDTO, TypeVehicleDeleteDTO>();

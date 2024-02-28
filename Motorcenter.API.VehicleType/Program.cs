@@ -11,6 +11,9 @@ builder.Services.AddDbContext<MotorcenterContext>(
         options.UseSqlServer(
             builder.Configuration.GetConnectionString("MotorcenterConnection")));
 
+/**********
+ ** CORS Cross-Origin Resource Sharing**
+ **********/
 
 builder.Services.AddCors(policy =>
 {

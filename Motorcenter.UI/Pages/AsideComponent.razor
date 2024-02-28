@@ -15,15 +15,15 @@
 @code {
 
     [CascadingParameter(Name = "Service")] public UIService? Service { get; set; }
-   
-
     [Parameter] public EventCallback OnChange { get; set; }
-    void OnAsideCallback(int id )
+    
+    
+    async Task OnAsideCallback(int id )
     {
-        if (OnChange.HasDelegate)
+        if (OnChange.HasDelegate && Service is not null)
         {
-
-            OnChange.InvokeAsync();
+            await Service.OnTypeLinkClick(id);
+             await OnChange.InvokeAsync();
 
         }
     }
