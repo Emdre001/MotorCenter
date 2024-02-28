@@ -41,8 +41,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 RegisterEndpoints();
+/************************
+ ** CORS Configuration **
+ ************************/
+app.UseCors("CorsAllAccessPolicy");
 
-app.UseCors();
 app.Run();
 
 void RegisterEndpoints()

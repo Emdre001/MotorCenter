@@ -28,7 +28,11 @@ public class UIService(CategoryHttpClient categoryHttp,IMapper mapper)
 
     public async Task GetLinkGroup()
     {
-        var types = await categoryHttp.GetTypeAsync();
+        TypeVehicle = await categoryHttp.GetTypeAsync();
+        TypeLinkGroups[0].LinkOption = mapper.Map<List<LinkOption>>(TypeVehicle);
+        var linkOption = TypeLinkGroups[0].LinkOption.FirstOrDefault();
+        linkOption!.IsSelected = true;
+
     }
 }
 

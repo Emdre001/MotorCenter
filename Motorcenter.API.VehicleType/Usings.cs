@@ -4,3 +4,4 @@ global using Motorcenter.Data.Contexts;
 global using Motorcenter.Data.Services;
 global using Motorcenter.API.DTO;
 global using Motorcenter.API.Extensions.Extensions;
+global using Motorcenter.Data.Entities;
