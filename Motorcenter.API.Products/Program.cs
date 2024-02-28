@@ -65,7 +65,19 @@ void RegisterEndpoints()
     //app.AddEndpoint<Color, ColorPostDTO, ColorPutDTO, ColorGetDTO>();
     //app.AddEndpoint<TypeVehicle, TypeVehiclePostDTO, TypeVehicleDeleteDTO>();
     //app.AddEndpoint<VehicleColor, VehicleColorPostDTO, VehicleColorDeleteDTO>();
+    app.MapGet($"/api/VehiclesbyType/" + "{TypeId}", async (IDbService db, int TypeId) =>
+    {
+        try
+        {
+            var result = await ((VehicleDbService)db).GetVehiclesByTypeAsync(TypeId);
+            return Results.Ok(result);
+        }
+        catch
+        {
+        }
 
+        return Results.BadRequest($"Couldn't get the requested products of type {typeof(Vehicle).Name}.");
+    });
 }
 
 
@@ -91,6 +103,7 @@ void ConfigureAutoMapper()
 
         cfg.CreateMap<TypeVehicle, TypeVehiclePostDTO>().ReverseMap();
         cfg.CreateMap<TypeVehicle, TypeVehicleDeleteDTO>().ReverseMap();
+     
 
         cfg.CreateMap<VehicleColor, VehicleColorPostDTO>().ReverseMap();
         cfg.CreateMap<VehicleColor, VehicleColorDeleteDTO>().ReverseMap();

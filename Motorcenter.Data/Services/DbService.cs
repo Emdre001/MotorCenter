@@ -1,4 +1,6 @@
-﻿namespace Motorcenter.Data.Services;
+﻿using System.Linq.Expressions;
+
+namespace Motorcenter.Data.Services;
 
 public class DbService : IDbService
 {
@@ -20,7 +22,12 @@ public class DbService : IDbService
 
 
     }
-
+    public IQueryable<TEntity> GetAsync<TEntity>(
+    Expression<Func<TEntity, bool>> expression)
+    where TEntity : class
+    {
+        return _db.Set<TEntity>().Where(expression);
+    }
     public virtual async Task<TDto> SingleAsync<TEntity, TDto>(int id) where TEntity : class, IEntity where TDto : class
     {
         var entity = await _db.Set<TEntity>().SingleOrDefaultAsync(e => e.Id == id);
