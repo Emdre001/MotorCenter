@@ -23,15 +23,10 @@
         if (OnChange.HasDelegate && Service is not null)
         {
             await Service.OnTypeLinkClick(id);
-             await OnChange.InvokeAsync();
+            await OnChange.InvokeAsync();
 
         }
     }
-
-
-
-
-
 
     protected override async Task OnInitializedAsync()
     {
@@ -41,7 +36,7 @@
             await OnChange.InvokeAsync();
         }
     }
-
+        
 
     /*List<LinkGroup> TypeLinkGroups { get; set; } = new()
     {

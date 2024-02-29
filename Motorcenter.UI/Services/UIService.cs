@@ -1,9 +1,9 @@
 ﻿namespace Motorcenter.UI.Services;
 
-public class UIService(CategoryHttpClient categoryHttp, VehicleHttpClient vehicleHttp ,IMapper mapper)
+public class UIService(CategoryHttpClient categoryHttp, 
+    VehicleHttpClient vehicleHttp ,IMapper mapper)
 {
    List<TypeGetDTO> TypeVehicle { get; set; } = [];
-
     public List<VehicleGetDTO> Vehicles { get; private set; } = [];
     public List<LinkGroup> TypeLinkGroups { get; private set; } =
     [

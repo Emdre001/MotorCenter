@@ -1,0 +1,13 @@
+﻿<section class="d-flex flex-wrap">
+    <ul class="list-group">
+        @foreach (var vehicle in Service!.Vehicles)
+        {
+            <li class="list-group-item">@vehicle.Name</li>
+        }
+        </ul>
+</section>
+
+@code {
+    [CascadingParameter(Name = "Service")] public UIService? Service { get; set; }
+    [Parameter] public EventCallback OnChange { get; set; }
+}
