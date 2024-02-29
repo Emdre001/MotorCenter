@@ -9,17 +9,12 @@ public class VehicleDbService(MotorcenterContext db, IMapper mapper) : DbService
 
     public override async Task<List<TDto>> GetAsync<TEntity, TDto>()
     {
-        IncludeNavigationsFor<Filter>();
-        IncludeNavigationsFor<Color>();
         var result = await base.GetAsync<TEntity, TDto>();
                 return result;
-
     }
 
     public async Task<List<VehicleGetDTO>> GetVehiclesByTypeAsync(int typeId)
     {
-        IncludeNavigationsFor<Color>();
-        IncludeNavigationsFor<Brand>();
         var VehicleIds = GetAsync<TypeVehicle>(pc => pc.TypeId.Equals(typeId))
             .Select(pc => pc.TypeId);
         var vehicles = await GetAsync<Vehicle>(p => VehicleIds.Contains(p.Id)).ToListAsync();

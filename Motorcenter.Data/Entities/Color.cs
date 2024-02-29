@@ -1,9 +1,0 @@
-﻿namespace Motorcenter.Data.Entities;
-
-public class Color : IEntity
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public List<Vehicle>? Vehicles { get; set; }
-    public OptionType OptionType { get; set; }
-}
