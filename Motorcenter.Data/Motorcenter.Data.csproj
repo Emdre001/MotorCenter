@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Motorcenter.API.DTO\Motorcenter.API.DTO.csproj" />
     <ProjectReference Include="..\Motorcenter.Data.Shared\Motorcenter.Data.Shared.csproj" />
-	  <ProjectReference Include="..\Motorcenter.API.DTO\Motorcenter.API.DTO.csproj" />
   </ItemGroup>
 
 </Project>
