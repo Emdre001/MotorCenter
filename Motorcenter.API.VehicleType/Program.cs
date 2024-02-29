@@ -24,13 +24,7 @@ builder.Services.AddCors(policy =>
     );
 });
 
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 RegisterServices();
-ConfigureAutoMapper();
 
 var app = builder.Build();
 
@@ -55,7 +49,18 @@ void RegisterEndpoints()
 {
     //app.AddEndpoint<Motorcenter.Data.Entities.TypeVehicle, TypeVehiclePostDTO>();
     app.AddEndpoint<Motorcenter.Data.Entities.Type, TypePostDTO, TypePutDTO, TypeGetDTO>();
+    /*app.MapGet($"/api/typeswithdata", async (IDbService db) =>
+   {
+       try
+       {
+           return Results.Ok(await ((TypeDbService)db).GetTypesWithAllRelatedDataAsync());
+       }
+       catch
+       {
+       }
 
+       return Results.BadRequest($"Couldn't get the requested products of type {typeof(Type).Name}.");
+   });*/
 }
 
 void RegisterServices()
@@ -73,6 +78,7 @@ void ConfigureAutoMapper()
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
+        cfg.CreateMap<TypeVehicle, TypeVehicleDTO> ().ReverseMap();
     });
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);
