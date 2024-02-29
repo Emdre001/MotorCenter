@@ -84,6 +84,7 @@ void ConfigureAutoMapper()
         cfg.CreateMap<Vehicle, VehiclePostDTO>().ReverseMap();
         cfg.CreateMap<Vehicle, VehiclePutDTO>().ReverseMap();
         cfg.CreateMap<Vehicle, VehicleGetDTO>().ReverseMap();
+        cfg.CreateMap<TypeVehicle, TypeVehicleDTO>().ReverseMap();
 
     });
     var mapper = config.CreateMapper();
