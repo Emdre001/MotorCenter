@@ -12,7 +12,6 @@ public class TypePutDTO : TypePostDTO
 
 public class TypeGetDTO : TypePutDTO
 {
-     public List<FilterGetDTO>? Filters { get; set; }
     public List<VehicleGetDTO>? Vehicles { get; set; }
 }
 

@@ -1,11 +1,4 @@
-﻿
-
-
-
-using AutoMapper;
-using Motorcenter.Data.Entities;
-
-namespace Motorcenter.UI.Services;
+﻿namespace Motorcenter.UI.Services;
 
 public class UIService(CategoryHttpClient categoryHttp, VehicleHttpClient vehicleHttp ,IMapper mapper)
 {
