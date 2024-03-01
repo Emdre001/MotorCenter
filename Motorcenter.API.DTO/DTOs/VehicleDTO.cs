@@ -5,7 +5,8 @@ public class VehiclePostDTO
 {
     // Namnet på fordonet som ska skapas
     public string Name { get; set; }
-    
+
+
 }
 
 // DTO-klass för att uppdatera befintligt Vehicle, ärver från VehiclePostDTO för att återanvända egenskaper
