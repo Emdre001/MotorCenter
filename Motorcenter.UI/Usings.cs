@@ -6,3 +6,4 @@ global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using Motorcenter.UI.Services;
 global using AutoMapper;
+global using Motorcenter.UI.Extensions;

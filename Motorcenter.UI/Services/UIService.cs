@@ -1,6 +1,6 @@
 ﻿namespace Motorcenter.UI.Services;
 
-public class UIService(CategoryHttpClient categoryHttp, 
+public class UIService(TypeHttpClient categoryHttp, 
     VehicleHttpClient vehicleHttp ,IMapper mapper)
 {
    List<TypeGetDTO> TypeVehicle { get; set; } = [];

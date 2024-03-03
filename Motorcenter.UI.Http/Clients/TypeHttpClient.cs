@@ -3,12 +3,12 @@
 
 namespace eShop.UI.Http.Clients;
 
-public class CategoryHttpClient
+public class TypeHttpClient
 {
     private readonly HttpClient _httpClient;
     string _baseAddress = "https://localhost:7054/api/";
 
-    public CategoryHttpClient(HttpClient httpClient)
+    public TypeHttpClient(HttpClient httpClient)
     {
         _httpClient = httpClient;
         _httpClient.BaseAddress = new Uri($"{_baseAddress}Types");

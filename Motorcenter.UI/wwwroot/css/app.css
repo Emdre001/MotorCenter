@@ -46,12 +46,7 @@ h1:focus {
     width: 20px;
 }
 
-@media screen and (max-width: 470px) {
-    #aside-menu, #viewport {
-        height: auto !important;
-        flex-direction: column;
-    }
-}
+
 
 nav a img {
     height: 49px;
@@ -138,13 +133,30 @@ element.style {
     padding-top: 0.0rem;
 }
 
-    .carousel-item:nth-child(2) .carousel-caption h5, .carousel-item:nth-child(2) .carousel-caption p {
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Lägg till skugga för att förbättra läsbarheten på ljusa bilder */
-    }
+.carousel-item:nth-child(2) .carousel-caption h5, .carousel-item:nth-child(2) .carousel-caption p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Lägg till skugga för att förbättra läsbarheten på ljusa bilder */
+}
 
 .fixed-nav {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000; /* Justera detta värde om det behövs för att kontrollera staplingsordningen */
+}
+
+/*.btn-group {*/
+    /*widht: 0px !important;*/
+    /*width: 10%;
+}*/
+
+.btn-radio {
+    widht: 45px;
+}
+
+
+@media screen and (max-width: 470px) {
+    #aside-menu, #viewport {
+        height: auto !important;
+        flex-direction: column;
+    }
 }

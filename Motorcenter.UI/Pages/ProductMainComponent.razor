@@ -2,18 +2,46 @@
     @foreach(var vehicle in Service!.Vehicles)
     {
         <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
+            <div class="row">
                 <div class="col-md-4">
                     <img src="@vehicle.PictureURL" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">@vehicle.Name</h5>
-                        <p class="card-text text-truncate">@vehicle.Description</p>
-                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        <p class="card-text">@vehicle.Description.Truncate(300)</p>
                     </div>
                 </div>
             </div>
+            <div class="d-flex card-footer g-0 justify-content-start">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary btn-radio" for="btnradio1">2021</label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio2">2022</label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio3">2024</label>
+                </div>
+
+                <div class="btn-group mx-2" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="color-@vehicle.Id" id="color-@vehicle.Id-1"
+                           autocomplete="off">
+                    <label class="btn btn-sm btn-outline-primary"
+                           style="background-color:#FFF; color:#000"
+                           for="color-@vehicle.Id-1"><i class="bi-check"></i></label>
+                    <input type="radio" class="btn-check" name="color-@vehicle.Id" id="color-@vehicle.Id-2"
+                           autocomplete="off">
+                    <label class="btn btn-sm btn-outline-primary"
+                           style="background-color:blueviolet; color:#FFF"
+                           for="color-@vehicle.Id-2"><i class="bi-check"></i></label>
+                </div>
+
+                <button class="btn btn-sm btn-success" @onclick="AddToCart"><i class="bi-cart"></i></button>
+
+            </div>
+            
         </div>
     }
 </section>
@@ -21,4 +49,9 @@
 @code {
     [CascadingParameter(Name = "Service")] public UIService? Service { get; set; }
     [Parameter] public EventCallback OnChange { get; set; }
+
+    void AddToCart()
+    {
+        
+    }
 }

@@ -5,24 +5,12 @@
 <NavComponent />
 <MenuComponent/>
 
-<div class=" d-flex">
-
+<div id="viewport" class="d-flex vh-100">
     <CascadingValue Value="Service" Name="Service">
         <AsideComponent OnChange="OnChange" />
         <ProductMainComponent OnChange="OnChange" />
     </CascadingValue>
-    
-    <div class="mr-auto">
-    <CarouselComponent/>
-    <CardListComponent/>
-    </div>
-    
 </div>
-
- <div id="viewport" class="d-flex vh-100">
-   
-    <ProductComponent />
-</div> 
 
 
 @code 
