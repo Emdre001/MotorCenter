@@ -11,8 +11,8 @@ using Motorcenter.Data.Contexts;
 namespace Motorcenter.Data.Migrations
 {
     [DbContext(typeof(MotorcenterContext))]
-    [Migration("20240229102027_RemovedFilters")]
-    partial class RemovedFilters
+    [Migration("20240301102133_RedoInitial")]
+    partial class RedoInitial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,7 +64,15 @@ namespace Motorcenter.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PictureURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

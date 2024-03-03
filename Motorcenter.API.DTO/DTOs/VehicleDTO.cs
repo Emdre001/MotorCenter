@@ -5,7 +5,8 @@ public class VehiclePostDTO
 {
     // Namnet på fordonet som ska skapas
     public string Name { get; set; }
-
+    public string Description { get; set; } = string.Empty;
+    public string PictureURL { get; set; } = string.Empty;
 
 }
 

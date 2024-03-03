@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Motorcenter.Data.Shared\Motorcenter.Data.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
