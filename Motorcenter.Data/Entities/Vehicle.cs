@@ -1,4 +1,6 @@
-﻿namespace Motorcenter.Data.Entities;
+﻿using System.Drawing;
+
+namespace Motorcenter.Data.Entities;
 
 public class Vehicle : IEntity
 {
@@ -6,5 +8,8 @@ public class Vehicle : IEntity
     public string Name { get; set; }
     public string Description { get; set; } = string.Empty;
     public string PictureURL { get; set; } = string.Empty;
-    public List<Type>? VehicleTypes { get; set; }
+
+    public List<Type>? Types{ get; set; }
+    public List<Color>? Colors { get; set; }
+    public List<Year>? Years { get; set; }
 }
