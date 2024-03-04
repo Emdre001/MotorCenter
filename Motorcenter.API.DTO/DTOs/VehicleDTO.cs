@@ -10,15 +10,14 @@ public class VehiclePostDTO
 
 }
 
-// DTO-klass för att uppdatera befintligt Vehicle, ärver från VehiclePostDTO för att återanvända egenskaper
 public class VehiclePutDTO : VehiclePostDTO
 {
-    // Id för det befintliga fordonet som ska uppdateras
     public int Id { get; set; }
 }
 
-// DTO-klass för att hämta information om en Vehicle, ärver från VehiclePutDTO för att inkludera Id och andra egenskaper
 public class VehicleGetDTO : VehiclePutDTO
 {
-    // Inga ytterligare egenskaper, ärver från VehiclePutDTO för att inkludera Id och andra egenskaper
+    public List<ColorGetDTO>? Colors { get; set; }
+    public List<YearGetDTO>? Years { get; set; }
+
 }

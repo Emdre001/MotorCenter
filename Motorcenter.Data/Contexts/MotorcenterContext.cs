@@ -5,7 +5,7 @@ using System.Reflection;
 namespace Motorcenter.Data.Contexts;
 
 // DbContext är en del av Entity Framework Core och hanterar databasåtkomst
-public class MotorcenterContext(DbContextOptions<MotorcenterContext> Builder) : DbContext(Builder)
+public class MotorcenterContext(DbContextOptions<MotorcenterContext> builder) : DbContext(builder)
 {
  
     public DbSet<Vehicle> Vehicles => Set<Vehicle>();
