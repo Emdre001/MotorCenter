@@ -35,6 +35,7 @@ public class UIService(TypeHttpClient categoryHttp,
     {
         CurrentTypeId = id;
         await GetTypeAsync();
+        Vehicles.ForEach(v =>  v.Colors!.First().IsSelected = true);
         TypeLinkGroups[0].LinkOption.ForEach(l => l.IsSelected = false);
         TypeLinkGroups[0].LinkOption.Single(l => l.Id.Equals(CurrentTypeId)).IsSelected = true;
 
