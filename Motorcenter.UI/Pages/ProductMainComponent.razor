@@ -31,7 +31,7 @@
                     {
                         <div class="btn-group mx-2" role="group" aria-label="Basic radio toggle button group">
                             <input type="radio" class="btn-check" name="color-@vehicle.Id-@color.Id" id="color-@vehicle.Id-@color.Id"
-                                   autocomplete="off">
+                                   autocomplete="off" @onclick="() => OnColorClick(vehicle, color)">
                             <label class="btn btn-sm btn-outline-primary"
                                    style="background-color:#@color.BGColor; color:#@(color.IsSelected ? color.TextColor : color.BGColor)"
                                    for="color-@vehicle.Id-@color.Id"><i class="bi-check"></i></label>
@@ -50,6 +50,11 @@
 @code {
     [CascadingParameter(Name = "Service")] public UIService? Service { get; set; }
     [Parameter] public EventCallback OnChange { get; set; }
+
+    void OnColorClick(VehicleGetDTO vehicle, ColorGetDTO color)
+    {
+        
+    }
 
     void AddToCart()
     {

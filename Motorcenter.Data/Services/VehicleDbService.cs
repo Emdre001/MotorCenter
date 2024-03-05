@@ -18,7 +18,7 @@ public class VehicleDbService(MotorcenterContext db, IMapper mapper) : DbService
     {
         IncludeNavigationsFor<Entities.Color>();
         IncludeNavigationsFor<Year>();
-        var VehicleIds = GetAsync<TypeVehicle>(pc => pc.TypeId.Equals(typeId))
+        var VehicleIds = GetAsync<Vehicle>(pc => pc.TypeId.Equals(typeId))
             .Select(pc => pc.TypeId);
         var vehicles = await GetAsync<Vehicle>(p => VehicleIds.Contains(p.Id)).ToListAsync();
         return MapList<Vehicle, VehicleGetDTO>(vehicles);

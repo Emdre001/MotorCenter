@@ -10,10 +10,9 @@ public class MotorcenterContext(DbContextOptions<MotorcenterContext> builder) : 
  
     public DbSet<Vehicle> Vehicles => Set<Vehicle>();
     public DbSet<Entities.Type> Types => base.Set<Entities.Type>();
-    public DbSet<TypeVehicle> TypeVehicles => Set<TypeVehicle>();
     public DbSet<Year> Years => Set<Year>();
     public DbSet<Entities.Color> Colors => base.Set<Entities.Color>();
-    public DbSet<TypeVehicle> TypeVehicle => Set<TypeVehicle>();
+    
     public DbSet<VehicleYear> VehicleYear => Set<VehicleYear>();
     public DbSet<VehicleColor> VehicleColor => Set<VehicleColor>();
     protected override void OnModelCreating(ModelBuilder builder)
@@ -25,15 +24,13 @@ public class MotorcenterContext(DbContextOptions<MotorcenterContext> builder) : 
             .HasKey(pc => new { pc.VehicleId, pc.ColorId });
         builder.Entity<VehicleYear>()
             .HasKey(ps => new { ps.VehicleId, ps.YearId });
-        builder.Entity<TypeVehicle>()
-            .HasKey(pc => new { pc.VehicleId, pc.TypeId });
         #endregion
 
         #region TypeVehicle Many-to-Many Relationship
         builder.Entity<Vehicle>()
-            .HasMany(p => p.Types)
+            .HasOne(p => p.Types)
             .WithMany(c => c.Vehicles)
-            .UsingEntity<TypeVehicle>();
+            .HasForeignKey(b=>b.TypeId);
         #endregion
 
         #region VehicleYear Many-to-Many Relationship
