@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Motorcenter.Data.Contexts;
 
@@ -10,9 +11,11 @@ using Motorcenter.Data.Contexts;
 namespace Motorcenter.Data.Migrations
 {
     [DbContext(typeof(MotorcenterContext))]
-    partial class MotorcenterContextModelSnapshot : ModelSnapshot
+    [Migration("20240305101549_NewDatabaseOneToMany")]
+    partial class NewDatabaseOneToMany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,13 +151,13 @@ namespace Motorcenter.Data.Migrations
 
             modelBuilder.Entity("Motorcenter.Data.Entities.Vehicle", b =>
                 {
-                    b.HasOne("Motorcenter.Data.Entities.Type", "Type")
+                    b.HasOne("Motorcenter.Data.Entities.Type", "Types")
                         .WithMany("Vehicles")
                         .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Type");
+                    b.Navigation("Types");
                 });
 
             modelBuilder.Entity("Motorcenter.Data.Entities.VehicleColor", b =>

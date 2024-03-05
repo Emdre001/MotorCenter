@@ -28,7 +28,7 @@ public class MotorcenterContext(DbContextOptions<MotorcenterContext> builder) : 
 
         #region TypeVehicle Many-to-Many Relationship
         builder.Entity<Vehicle>()
-            .HasOne(p => p.Types)
+            .HasOne(p => p.Type)
             .WithMany(c => c.Vehicles)
             .HasForeignKey(b=>b.TypeId);
         #endregion

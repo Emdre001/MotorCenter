@@ -7,12 +7,14 @@ public class VehiclePostDTO
     public string Name { get; set; }
     public string Description { get; set; } = string.Empty;
     public string PictureURL { get; set; } = string.Empty;
+    public int TypeId { get; set; }
 
 }
 
 public class VehiclePutDTO : VehiclePostDTO
 {
     public int Id { get; set; }
+
 }
 
 public class VehicleGetDTO : VehiclePutDTO
