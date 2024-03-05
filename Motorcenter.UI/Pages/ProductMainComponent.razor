@@ -19,8 +19,13 @@
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                         @foreach (var year in vehicle.Years)
                         {
-                            <input type="radio" class="btn-check" name="btnradio" id="year-@vehicle.Id-@year.Id" autocomplete="off" checked>
-                            <label class="btn btn-outline-primary btn-radio"for="size-@vehicle.Id-@year.Id">@year.Name</label>
+                            <input type="radio" class="btn-check" name="btnradio"
+                                id="year-@vehicle.Id-@year.Id"
+                                @onclick="() => OnYearClick(vehicle, year)"
+                                autocomplete="off" checked>
+                            <label class="btn btn-outline-primary btn-radio"
+                                for="year-@vehicle.Id-@year.Id">@year.Name</label>
+
                         }
                     </div>
                 }
@@ -53,7 +58,14 @@
 
     void OnColorClick(VehicleGetDTO vehicle, ColorGetDTO color)
     {
-        
+        vehicle.Colors!.ForEach(c => c.IsSelected = false);
+        color.IsSelected = true;
+    }
+
+    void OnYearClick(VehicleGetDTO vehicle, YearGetDTO year)
+    {
+        vehicle.Years!.ForEach(p => p.IsSelected = false);
+        year.IsSelected = true;
     }
 
     void AddToCart()

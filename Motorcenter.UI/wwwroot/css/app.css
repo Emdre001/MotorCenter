@@ -153,10 +153,14 @@ element.style {
     widht: 45px;
 }
 
-
-@media screen and (max-width: 470px) {
-    #aside-menu, #viewport {
-        height: auto !important;
-        flex-direction: column;
-    }
+.modal-body img {
+    max-height: 153px!important;
 }
+
+
+    @media screen and (max-width: 470px) {
+        #aside-menu, #viewport {
+            height: auto !important;
+            flex-direction: column;
+        }
+    }
