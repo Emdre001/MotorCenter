@@ -85,7 +85,6 @@ void ConfigureAutoMapper()
         cfg.CreateMap<Color, ColorPostDTO>().ReverseMap();
         cfg.CreateMap<Color, ColorPutDTO>().ReverseMap();
         cfg.CreateMap<Color, ColorGetDTO>().ReverseMap();
-        cfg.CreateMap<TypeVehicle, TypeVehicleDTO>().ReverseMap();
 
     });
     var mapper = config.CreateMapper();

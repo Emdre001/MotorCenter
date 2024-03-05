@@ -78,7 +78,6 @@ void ConfigureAutoMapper()
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypePutDTO>().ReverseMap();
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeGetDTO>().ReverseMap();
         cfg.CreateMap<Motorcenter.Data.Entities.Type, TypeSmallGetDTO>().ReverseMap();
-        cfg.CreateMap<TypeVehicle, TypeVehicleDTO> ().ReverseMap();
     });
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);
