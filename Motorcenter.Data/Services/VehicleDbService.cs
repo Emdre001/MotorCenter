@@ -1,6 +1,7 @@
 ﻿
 using Motorcenter.API.DTO;
 using Motorcenter.Data.Entities;
+using System;
 using System.Drawing;
 
 namespace Motorcenter.Data.Services;
@@ -18,10 +19,10 @@ public class VehicleDbService(MotorcenterContext db, IMapper mapper) : DbService
     {
         IncludeNavigationsFor<Entities.Color>();
         IncludeNavigationsFor<Year>();
-        var VehicleIds = GetAsync<Vehicle>(pc => pc.TypeId.Equals(typeId))
-            .Select(pc => pc.TypeId);
-        var vehicles = await GetAsync<Vehicle>(p => VehicleIds.Contains(p.Id)).ToListAsync();
-        return MapList<Vehicle, VehicleGetDTO>(vehicles);
+        /*var VehicleIds = GetAsync<Vehicle>(pc => pc.TypeId.Equals(typeId))
+            .Select(pc => pc.TypeId);*/
+        var vehicles = await GetAsync<Vehicle>(p => p.TypeId == typeId).ToListAsync();
+        return MapList<Vehicle, VehicleGetDTO>(vehicles); //ändra aldrig
     }
 
     public List<TDto> MapList<TEntity, TDto>(List<TEntity> entities)
