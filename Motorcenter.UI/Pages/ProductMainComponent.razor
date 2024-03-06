@@ -1,4 +1,7 @@
-﻿<section class="d-flex flex-wrap">
+﻿@using Motorcenter.UI.Storage.Services
+@inject IStorageService Storage 
+
+<section class="d-flex flex-wrap">
     @foreach(var vehicle in Service!.Vehicles)
     {
         <div class="card mb-3" style="max-width: 540px;">
@@ -68,8 +71,11 @@
         year.IsSelected = true;
     }
 
-    void AddToCart(VehicleGetDTO vehicle)
+    async Task AddToCart(VehicleGetDTO vehicle)
     {
-       //var vehicle =  Service!.Vehicles.Single(p => p.Id == id);
+        // await Storage.SetAsync("MyKey", vehicle);
+        var prod = await Storage.GetAsync<VehicleGetDTO>("MyKey");
+         // await Storage.RemoveAsync("MyKey");
+        //var vehicle =  Service!.Vehicles.Single(p => p.Id == id);
     }
 }
