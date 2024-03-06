@@ -44,7 +44,7 @@
                     }
                     
                 }
-                <button class="btn btn-sm btn-success" @onclick="AddToCart"><i class="bi-cart"></i></button>
+                <button class="btn btn-sm btn-success" @onclick="() => AddToCart(vehicle)"><i class="bi-cart"></i></button>
 
             </div>
             
@@ -68,9 +68,8 @@
         year.IsSelected = true;
     }
 
-    void AddToCart()
+    void AddToCart(VehicleGetDTO vehicle)
     {
-        
-
+       //var vehicle =  Service!.Vehicles.Single(p => p.Id == id);
     }
 }
