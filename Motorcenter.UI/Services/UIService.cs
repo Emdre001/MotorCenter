@@ -1,10 +1,13 @@
-﻿namespace Motorcenter.UI.Services;
+﻿using Motorcenter.UI.Storage.Services;
+
+namespace Motorcenter.UI.Services;
 
 public class UIService(TypeHttpClient categoryHttp, 
-    VehicleHttpClient vehicleHttp ,IMapper mapper)
+    VehicleHttpClient vehicleHttp ,IMapper mapper, IStorageService storage)
 {
    List<TypeGetDTO> TypeVehicle { get; set; } = [];
     public List<VehicleGetDTO> Vehicles { get; private set; } = [];
+    public List<CartItemDTO > CartItems { get; set; } = [];
     public List<LinkGroup> TypeLinkGroups { get; private set; } =
     [
         new LinkGroup { Name ="Categories",
@@ -43,6 +46,28 @@ public class UIService(TypeHttpClient categoryHttp,
 
     public async Task GetTypeAsync() =>
         Vehicles = await vehicleHttp.GetVehiclesAsync(CurrentTypeId);
+
+    public async Task<T> ReadStorage<T>(string key)// where T : class
+    {
+       // if (string.IsNullOrEmpty(key) || storage is null) return;
+        return await storage.GetAsync<T>(key);
+    }
+    public async Task<T> ReadSingleStorage<T>(string key)// where T : class
+    {    
+        return await storage.GetAsync<T>(key);
+    }
+
+    public async Task SaveToStorage<T>(string key, T value)// where T : class
+    {
+        if (string.IsNullOrEmpty(key) || storage is null) return;
+        await storage.SetAsync<T>(key, value);
+    }
+    public async Task RemoveFromStorage(string key)// where T : class
+    {
+        if (string.IsNullOrEmpty(key) || storage is null) return;
+        await storage.RemoveAsync(key);
+    }
+
 
 }
 

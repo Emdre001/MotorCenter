@@ -21,7 +21,9 @@ void ConfigureAutoMapper()
     var config = new MapperConfiguration(cfg =>
     {
         cfg.CreateMap<TypeGetDTO,LinkOption>().ReverseMap();
-        
+        cfg.CreateMap<VehicleGetDTO, CartItemDTO>().ReverseMap();
+
+
     });
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);

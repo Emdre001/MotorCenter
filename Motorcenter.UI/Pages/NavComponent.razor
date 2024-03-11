@@ -29,15 +29,26 @@
                     data-bs-toggle="modal" data-bs-target="#cart"
                     class="btn btn-light rounded-0">    
                 <i class="bi bi-cart"></i></button>@* Här har vi gjort en fyrkantig knapp  *@
-                <div class="cart-count bg-black text-white rounded-circle position-absolute">3</div> @* cart-count gör en egen klass för röda cirkeln över cart. *@
+                <div class="cart-count bg-black text-white rounded-circle position-absolute">@UICartService!.CartItems.Count</div> @* cart-count gör en egen klass för röda cirkeln över cart. *@
             </div>
             <div> </div>
         </div>
     </div>
 </nav>
 
-<CartComponent />
+<CartComponent OnRemoveCartItem="OnRemoveCartItem" CartItems="UICartService!.CartItems" />
 
 @code {
+    [Parameter] public UIService? UICartService { get; set; }
 
+    protected override async Task OnParametersSetAsync()
+    {
+        UICartService!.CartItems =await UICartService!.ReadStorage<List<CartItemDTO>>("CartItems") ?? [];
+    }
+
+   async Task OnRemoveCartItem(CartItemDTO? cartItem)
+    {
+        UICartService!.CartItems.Remove(cartItem);
+        await UICartService!.SaveToStorage("CartItems", UICartService!.CartItems);
+    }
 }

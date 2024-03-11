@@ -2,8 +2,13 @@
 @page "/"
 @inject UIService Service
 
-<NavComponent />
-<MenuComponent/>
+
+<NavComponent UICartService="Service" />
+@* <MenuComponent />
+<CarouselComponent />
+<CardListComponent />
+ *@
+ 
 
 <div id="viewport" class="d-flex vh-100">
     <CascadingValue Value="Service" Name="Service">

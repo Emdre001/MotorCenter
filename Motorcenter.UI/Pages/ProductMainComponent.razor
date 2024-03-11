@@ -1,5 +1,6 @@
-﻿@using Motorcenter.UI.Storage.Services
-@inject IStorageService Storage 
+﻿@using AutoMapper
+@using Motorcenter.UI.Storage.Services
+ @inject IMapper mapper
 
 <section class="d-flex flex-wrap">
     @foreach(var vehicle in Service!.Vehicles)
@@ -73,9 +74,32 @@
 
     async Task AddToCart(VehicleGetDTO vehicle)
     {
-        // await Storage.SetAsync("MyKey", vehicle);
-        var prod = await Storage.GetAsync<VehicleGetDTO>("MyKey");
-         // await Storage.RemoveAsync("MyKey");
-        //var vehicle =  Service!.Vehicles.Single(p => p.Id == id);
+        //TODO: Spara flera produkter till shopping cart
+        //TODO: Visa produkterna i shopping carten
+        //TODO: Ta bort produkt från shopping cart
+       
+        
+        var cartItem = mapper.Map<CartItemDTO>(vehicle);
+        cartItem.Color =vehicle.Colors!.FirstOrDefault(s => s.IsSelected);
+        cartItem.Year = vehicle.Years!.FirstOrDefault(s => s.IsSelected);
+        Service!.CartItems.Add(cartItem);
+        await Service!.SaveToStorage("CartItems", Service!.CartItems);
+
+      //  if (OnChange.HasDelegate)
+         //   await OnChange.InvokeAsync();
+
+        //await Storage.SetAsync("MyKey", Vehicle);
+        //await Service!.SaveToStorage("MyKey", Vehicle);
+
+        //var prod = await Storage.GetAsync<VehicletGetDTO>("MyKey");
+        //var prod = await Service!.ReadSingleStorage<VehicleGetDTO>("MyKey");
+
+
+        //await Storage.RemoveAsync("MyKey");
+        //await Service!.RemoveFromStorage("MyKey");
+
+        //var Vehicle = Service!.Vehicles.Single(p => p.Id == id);
+       
+           
     }
 }
