@@ -74,9 +74,7 @@
 
     async Task AddToCart(VehicleGetDTO vehicle)
     {
-        //TODO: Spara flera produkter till shopping cart
-        //TODO: Visa produkterna i shopping carten
-        //TODO: Ta bort produkt från shopping cart
+
        
         
         var cartItem = mapper.Map<CartItemDTO>(vehicle);
@@ -88,18 +86,5 @@
           if (OnChange.HasDelegate)
             await OnChange.InvokeAsync();
 
-        //await Storage.SetAsync("MyKey", Vehicle);
-        //await Service!.SaveToStorage("MyKey", Vehicle);
-
-        //var prod = await Storage.GetAsync<VehicletGetDTO>("MyKey");
-        //var prod = await Service!.ReadSingleStorage<VehicleGetDTO>("MyKey");
-
-
-        //await Storage.RemoveAsync("MyKey");
-        //await Service!.RemoveFromStorage("MyKey");
-
-        //var Vehicle = Service!.Vehicles.Single(p => p.Id == id);
-       
-           
     }
 }

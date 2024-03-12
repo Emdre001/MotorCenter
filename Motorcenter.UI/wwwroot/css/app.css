@@ -56,14 +56,14 @@ carousel.slide {
 }
 
 #carouselExampleCaptions {
-    /*width: 75%;*/ /* Öka bredden enligt dina önskemål */
-    margin: 0 auto; /* Centrera karusellen horisontellt */
+   
+    margin: 0 auto; 
 }
 
 .carousel-item img {
-    width: 100%; /* Sätt bredden till 100% för att anpassa sig till föräldrarelementet */
-    height: 350px; /* Ange önskad höjd för bilderna */
-    object-fit: cover; /* Använd "cover" för att behålla bildförhållandet och täcka hela området */
+    width: 100%; 
+    height: 350px; 
+    object-fit: cover; 
     position: relative;
 }
 
@@ -145,10 +145,7 @@ element.style {
     z-index: 1000; /* Justera detta värde om det behövs för att kontrollera staplingsordningen */
 }
 
-/*.btn-group {*/
-    /*widht: 0px !important;*/
-    /*width: 10%;
-}*/
+
 
 .btn-radio {
     width: 65px;

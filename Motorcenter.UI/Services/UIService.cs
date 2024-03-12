@@ -12,12 +12,7 @@ public class UIService(TypeHttpClient categoryHttp,
     [
         new LinkGroup { Name ="Categories",
 
-          /* LinkOption = new()
-           {
-                 new LinkOption { Id  = 1, Name = "Car", IsSelected = true },
-                 new LinkOption { Id = 2, Name = "Motorcycle", IsSelected = false },
-
-           }*/
+          
         }
     ];
 
@@ -49,7 +44,7 @@ public class UIService(TypeHttpClient categoryHttp,
 
     public async Task<T> ReadStorage<T>(string key)// where T : class
     {
-       // if (string.IsNullOrEmpty(key) || storage is null) return;
+       
         return await storage.GetAsync<T>(key);
     }
     public async Task<T> ReadSingleStorage<T>(string key)// where T : class

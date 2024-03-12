@@ -21,7 +21,6 @@ public class VehicleHttpClient
     {
         try
         {
-            // Use the relative path, not the base address here
             string relativePath = $"VehiclesbyType/{TypeId}";
             using HttpResponseMessage response = await _httpClient.GetAsync(relativePath);
             response.EnsureSuccessStatusCode();
