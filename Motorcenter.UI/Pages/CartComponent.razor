@@ -6,14 +6,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @if (CartItems is not null)
+                @if (CartItems is not null && CartItems.Count > 0)
                 {
                     @foreach (var item in CartItems)
                     {
                         <CartItemComponent OnRemoveItem="OnRemoveItem"  CartItem="item" />
                     }        
                 }
-                <CartItemComponent />
+                @* <CartItemComponent /> *@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

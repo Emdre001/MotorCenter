@@ -99,6 +99,7 @@ element.style {
 }
 
 
+
 .carousel {
     flex-grow: 1; 
 }
@@ -150,7 +151,7 @@ element.style {
 }*/
 
 .btn-radio {
-    widht: 45px;
+    width: 45px;
 }
 
 .modal-body img {

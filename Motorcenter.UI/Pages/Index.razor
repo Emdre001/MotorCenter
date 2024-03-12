@@ -10,13 +10,15 @@
 
  
 <div class="d-flex">
-<div id="viewport" class="d-flex vh-100">
-    <CascadingValue Value="Service" Name="Service">
-        <AsideComponent OnChange="OnChange" />
-        <ProductMainComponent OnChange="OnChange" />
-    </CascadingValue>
-</div>
-    <CarouselComponent />
+    <div id="viewport" class="d-flex vh-100" style="width:100%;">
+        <CascadingValue Value="Service" Name="Service">
+            <AsideComponent OnChange="OnChange" />
+            <div class="col-md-10">
+                <CarouselComponent />
+                <ProductMainComponent OnChange="OnChange" />
+            </div>
+        </CascadingValue>
+    </div>
 </div>
 
 
