@@ -4,17 +4,19 @@
 
 
 <NavComponent UICartService="Service" />
-@* <MenuComponent />
-<CarouselComponent />
-<CardListComponent />
- *@
- 
+<MenuComponent />
 
+@* <CardListComponent /> *@
+
+ 
+<div class="d-flex">
 <div id="viewport" class="d-flex vh-100">
     <CascadingValue Value="Service" Name="Service">
         <AsideComponent OnChange="OnChange" />
         <ProductMainComponent OnChange="OnChange" />
     </CascadingValue>
+</div>
+    <CarouselComponent />
 </div>
 
 

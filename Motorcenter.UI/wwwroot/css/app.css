@@ -117,9 +117,9 @@ element.style {
     width: 53%;
 }
 
-    .carousel-caption h5, .carousel-caption p {
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Lägg till skugga för att förbättra läsbarheten på ljusa bilder */
-    }
+.carousel-caption h5, .carousel-caption p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Lägg till skugga för att förbättra läsbarheten på ljusa bilder */
+}
 
 .carousel-inner {
     position: relative;
@@ -158,9 +158,9 @@ element.style {
 }
 
 
-    @media screen and (max-width: 470px) {
-        #aside-menu, #viewport {
+@media screen and (max-width: 470px) {
+    #aside-menu, #viewport {
             height: auto !important;
             flex-direction: column;
-        }
     }
+}
